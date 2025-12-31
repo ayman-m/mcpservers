@@ -8,7 +8,7 @@
 
 # Cortex MCP Servers
 
-A collection of Model Context Protocol (MCP) servers for Palo Alto Networks Cortex XSIAM/XDR security operations. These servers enable AI agents (like Claude) to interact with XSIAM through standardized tool interfaces for threat intelligence enrichment, log analysis, asset management, and security operations.
+A collection of Model Context Protocol (MCP) servers for Palo Alto Networks Cortex XSIAM security operations. These servers enable AI agents (like Gemini) to interact with XSIAM through standardized tool interfaces for threat intelligence enrichment, log analysis, asset management, and security operations.
 
 ## Overview
 
@@ -21,24 +21,24 @@ This repository contains MCP server implementations that bridge AI agents with C
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      AI Agent (Claude)                       │
+│                AI Agent (Gemini)                            │
 └───────────────────────┬─────────────────────────────────────┘
                         │ MCP Protocol
                         │
-        ┌───────────────┴───────────────┐
-        │                               │
+        ┌───────────────┴──────────────┐
+        │                              │
 ┌───────▼────────┐            ┌────────▼────────┐
-│   Standalone    │            │     XSIAM       │
-│   MCP Server    │            │   Integration   │
+│   Standalone   │            │     XSIAM       │
+│   MCP Server   │            │   Integration   │
 └───────┬────────┘            └────────┬────────┘
-        │                               │
-        │ XSIAM Public API             │ XSIAM SDK
-        │                               │
-        └───────────────┬───────────────┘
+        │                              │
+        │       XSIAM Public API       │ 
+        │                              │
+        └───────────────┬──────────────┘
                         │
               ┌─────────▼──────────┐
-              │  Cortex XSIAM/XDR   │
-              │   Platform          │
+              │  Cortex XSIAM/XDR  │
+              │   Platform         │
               └────────────────────┘
 ```
 
@@ -73,11 +73,10 @@ A fully-featured, independently deployable MCP server that combines all XSIAM to
 
 **For native XSIAM deployment**
 
-An MCP server that runs as an XSIAM integration (called "Osiris"), leveraging XSIAM's internal SDK and executing tools directly within the XSIAM platform.
+An MCP server that runs as an XSIAM integration, leveraging XSIAM's API and executing tools directly within the XSIAM platform.
 
 **Key Features:**
 - Runs inside XSIAM as a native integration
-- Direct access to XSIAM SDK and command execution
 - War Room/Playground command execution
 - Same 25+ tools as standalone version
 - Automatic credential management via XSIAM
@@ -117,27 +116,6 @@ poetry install
 poetry run python src/main.py
 ```
 
-### Claude Desktop Integration
-
-Add to your Claude Desktop configuration (`claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "cortex-xsiam": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "--env-file",
-        "/path/to/.env",
-        "cortex-mcp-standalone"
-      ]
-    }
-  }
-}
-```
 
 ## Available Tools
 
@@ -307,143 +285,9 @@ mcpservers/
 └── README.md              # This file
 ```
 
-### Adding New Tools
-
-1. Create module in `standalone/src/modules/`
-2. Extend `BaseModule` class
-3. Implement `register_tools()` and `register_resources()`
-4. Register module in `main.py`
-
-Example:
-```python
-from .base_module import BaseModule
-from fastmcp import Context
-
-class MyModule(BaseModule):
-    async def my_tool(self, ctx: Context, param: str) -> str:
-        """Tool description."""
-        # Tool implementation
-        return result
-
-    def register_tools(self):
-        self._add_tool(self.my_tool)
-
-    def register_resources(self):
-        pass
-```
-
-### Running Tests
-
-```bash
-cd standalone
-poetry install
-poetry run pytest
-```
-
-### Building Docker Image
-
-```bash
-cd standalone
-docker build -t cortex-mcp-standalone:latest .
-```
-
-## Troubleshooting
-
-### Common Issues
-
-**Connection Errors:**
-- Verify XSIAM API URL is correct
-- Check API credentials are valid
-- Ensure network connectivity to XSIAM
-
-**Tool Failures:**
-- Check PLAYGROUND_ID is set for command execution tools
-- Verify SLACK_BOT_TOKEN for Slack integration
-- Review logs at LOG_FILE_PATH
-
-**Authentication Issues:**
-- Confirm MCP_AUTH_TOKEN matches client configuration
-- Check token hasn't expired
-- Verify SSL certificates are valid
-
-### Debug Logging
-
-Enable debug logging:
-```bash
-LOG_LEVEL=DEBUG
-LOG_FORMAT=json
-```
-
-View logs:
-```bash
-tail -f /app/logs/mcp.json | jq
-```
-
-## Security
-
-### Best Practices
-
-1. **Credentials Management:**
-   - Never commit `.env` files
-   - Use environment variables or secrets management
-   - Rotate API keys regularly
-
-2. **Network Security:**
-   - Enable MCP_AUTH_TOKEN for HTTP transport
-   - Use SSL/TLS certificates in production
-   - Restrict network access with firewall rules
-
-3. **Access Control:**
-   - Use least-privilege XSIAM API keys
-   - Review audit logs regularly
-   - Monitor tool usage
-
-### Security Audit
-
-Run security scan:
-```bash
-grep -r "password\|secret\|token" --include="*.py" src/
-```
-
-All credentials are managed via environment variables. No secrets are hardcoded.
-
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
-Copyright (c) 2025 Ayman Mahmoud
 
 ## Support
 
 - Issues: [GitHub Issues](https://github.com/yourusername/mcpservers/issues)
 - Documentation: [Standalone README](standalone/README.md)
 - XSIAM Docs: [Cortex XSIAM Documentation](https://docs.paloaltonetworks.com/cortex/cortex-xsiam)
-
-## Acknowledgments
-
-- Built with [FastMCP](https://github.com/jlowin/fastmcp)
-- Model Context Protocol by [Anthropic](https://www.anthropic.com/news/model-context-protocol)
-- Palo Alto Networks [Cortex XSIAM](https://www.paloaltonetworks.com/cortex/cortex-xsiam)
-
-## Roadmap
-
-- [ ] Prompts module implementation
-- [ ] XQL content design with vector embeddings
-- [ ] Additional integrations (ServiceNow, Jira)
-- [ ] GraphQL query support
-- [ ] Real-time event streaming
-- [ ] Web UI for server management
-
----
-
-**Ready to get started?** Head to the [Standalone Server documentation](standalone/README.md) for detailed setup instructions.
