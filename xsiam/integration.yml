@@ -2565,7 +2565,7 @@ script:
     if __name__ in ('__main__', '__builtin__', 'builtins'):
         main()
   type: python
-  dockerimage: aymanam/osiris:latest
+  dockerimage: aymanam/osiris:xsiam-latest
   subtype: python3
   runonce: false
   longRunning: true
