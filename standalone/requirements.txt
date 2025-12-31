@@ -1,0 +1,26 @@
+# Core MCP dependencies
+fastmcp
+mcp
+
+# HTTP client
+httpx
+
+# Configuration and validation
+pydantic
+pydantic-settings
+python-dotenv
+
+# Logging
+python-json-logger
+
+# Web server (for HTTP transport)
+uvicorn
+starlette
+
+# XQL content design (from mcp-xql)
+chromadb
+google-generativeai
+pyyaml
+
+# Utilities
+python-dateutil

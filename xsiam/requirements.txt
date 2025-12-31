@@ -1,0 +1,8 @@
+fastmcp
+uvicorn
+httpx
+starlette
+pydantic
+pydantic-settings
+python-json-logger
+requests

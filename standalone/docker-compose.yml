@@ -1,0 +1,45 @@
+services:
+  mcp-xsiam:
+    image: aymanam/osiris:standalone-latest
+    container_name: osiris-standalone
+    environment:
+      - CORTEX_MCP_PAPI_URL
+      - CORTEX_MCP_PAPI_AUTH_HEADER
+      - CORTEX_MCP_PAPI_AUTH_ID
+      - MCP_TRANSPORT
+      - MCP_HOST
+      - MCP_PORT
+      - MCP_PATH
+      - MCP_AUTH_TOKEN
+      - SSL_CERT_PEM
+      - SSL_KEY_PEM
+      - LOG_FILE_PATH
+      - PLAYGROUND_ID
+      - SLACK_BOT_TOKEN
+    ports:
+      - "9020:9020"
+    volumes:
+      - xsiammcp_logs:/app/logs
+    restart: unless-stopped
+
+  agent-orion:
+    image: aymanam/eset:streamlit-latest
+    container_name: eset-streamlit
+    environment:
+      - GEMINI_API_KEY
+      - GEMINI_MODEL
+      - GOOGLE_APPLICATION_CREDENTIALS
+      - MCP_URL
+      - MCP_TOKEN
+      - SSL_CERT_PEM
+      - SSL_KEY_PEM
+      - UI_USER
+      - UI_PASSWORD
+    ports:
+      - "8501:8501"
+    depends_on:
+      - mcp-xsiam
+    restart: unless-stopped
+
+volumes:
+  xsiammcp_logs:

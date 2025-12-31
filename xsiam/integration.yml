@@ -1,0 +1,2573 @@
+commonfields:
+  id: Osiris
+  version: -1
+vcShouldKeepItemLegacyProdMachine: false
+name: Osiris
+display: Osiris
+category: Utilities
+image: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAF8ElEQVRo3tVaa2wUVRQ+lUeolLZQHwQxEUIi/GgpakvTst2d7fax7RaEUFOIRW2x7e7cme220BawNSQ1MQZFgYaH8gvlFVAxUYIIJPxRA7FSLCpBJMYnL5FEyh8cvzttodvd6e527izpJCezO3Pn3Pvde853zzkzRKKPAmUOScp+Kg/MoVF7FCiZJLHz5JA1nL8jlzxzxLoklgw908iBc5xBZKPTSzqIAcmvPU3Ltk+NSc/S5vGUz9YASBd0XIXOb2jpKm+cQDAnOvw9CAQXm1ej0ubj9PW5yVHpaXplLJU3bKN83xA9+F+gtJAnkGAdCIm50dm1EBADYgeYrJrDlF0d2UTscj7ZfXcMdN2kJW2PWwPCIZdC/jYEESwHATopwsquHVZHgb9IPAinvhI3owTRJ5L8ITm8xisjye8N+7xLtQk2JyUHPnElJhB3CcB7hCpff9TATI8bPmfzXUCfqeJAuPyzoPinEYEYkMKGr8jtnztkhbmZ3gr1MYiTXaPFgWKRFDuenMpBUyD0wemsBGqVt2EVWmgRmMoh3wjTthdAdlGpP120cz8EO/7FNJBQswm95mR7qKTBoujAqUzADJ4QDiREWDe5lInWbn5FgWysyiEAOmNgDuZFkt+N107+AGw3hUrU6VSsLsTvo4LBHMFEJVDcD7syBh1vEQikFz5SRPflkNRU2PY5cebF/oBPLjM/sMWBVEShKpRuJxeLjsMdyibx/sL2UUXHCNmrtiUZ9n/0bhSaW3uL1A2RuVxiqy1ismvQvR7ycKxx1GuUP0hRdo1GLVvfjsK8NlpMzRdhbowKlSmRQVSumg/kt4csr0Y5dZepyvuEMXh/Ctr1kA1t56vDC28jmaLnbkQZ9VSoJhqxzzh08rmhguyXPqI9xxINzOotPsDkhbXavMZlWmZgeVjh93gbHYx5//kWYFZQkfLg0P2hAg3+M3xwQb1GFe0nacVaDz3XOB3m9xiU5UP64i/M9rzG5dq+6xnanqsZ2u4rc4OEX+P3eBt9ZYQRgnf/4IAwERe7IsyARnl1PBTX9IRKYteD7mNwfNb5gD+4nKG9/9fcIOHX+D3eRggQbp42Pp616wYBUVeaVtwPhM8+H/iuPzODhF/j94QB4RNaFviR1h1K6wPxYkcyZvqHUQckC2y6utN3bzWatzDKqtZGHZDcuh56oWNSH4h3dqRRSdP5frsfXUAkVn1vNTxyO+V5zfG6GGe/ohMIn1BOKFJEej5NBfKEwfHRAWE0OBL6ldh+0H4ussRpOqVXrfFQRdtJneqN+7qD+G9J8N7hbkzEalRBusynrDFuiE7lzbCbK990s6s/Ns732WGkweMMQgxs95JSB0BnzPF61CHKWVC+cY1rZWAG5fmuhs1Vlq96JprsbzLyZRmoL1gaADrZGxHHsiSwKagwwUtDLmV9rBEwKiasvb9sY0FezgIRx/BsUybCoN5Bz32G2CppZLlJTfNssrO94sEoG6MrCLIytN8KS/EB/CQBNS1WCflNIJgeOHvKfcrLlULd2YT5ibwZ5zHxB+JAicbBjgg1MV5KcjcuIk/TdFBrKnwzTsCcyk6LmIynBd04f0Lu1qctNi05CZ2dtbxkKiknyNmQaA0Il5qOTkLDmZyXrQDzMyRNLACPmgmlu+Ebt0MTG991Yhs6sUM34n6nvufYTfsMJ4G9VMjGigNR0+LRbTf84P4lW31wWdOtZlCx8qUpMPw9fZEyUxyI1rYpCA8uGQ5Kkr8I+5y39RFa4Ds8QiCXwVpZYk2q1C9FeIexw/BZm5yMmY01PbgBJ7egcF3oLxnWjl1Kc4Ty6USAPRBDSbTYGpZqacMGJf8TvnqBxEaS8yLqyKpJhnyqfzRgHPrzzzQsfIWweE0CuHw12euHMpVG5f7N+Nwiuh2Yf77hbj6mf84Rap6/YoO1x2cnL3m1Dp2e0h1RwtkuB5CSxhZGPL9zKj4UONX/NncAxEWS/E/FOcaSJ+mfHDlNhNFlrTP0l5x9weL38LF0GrWHq2m2/uLGpT4pWvX/zRDqQjZWrVoAAAAASUVORK5CYII=
+description: |
+  Osiris is a prototype MCP for AI agents that lives inside XSIAM, leveraging XSIAM tools directly.
+detaileddescription: |
+  # Cortex MCP Quick Reference
+
+  ## Overview
+  MCP server connecting AI agents to Cortex XSIAM for Troy SOC security operations.
+
+  ---
+
+  ## Tools by Use Case
+
+  ### Investigating an IP
+  | Tool | Purpose |
+  |------|---------|
+  | `enrich_ip` | Threat intel, reputation, geolocation |
+  | `ip_lookup_arista` | Physical location in network |
+  | `get_lookup_data` | Subnet-to-location mapping* |
+  | `query_corelight_logs` | HTTP activity (last 30 min) |
+  | `query_paloalto_firewall_logs` | Threat events (last 30 min) |
+
+  *Use dataset: `agentic_subnet_lookup`
+
+  ### Investigating a Domain/URL
+  | Tool | Purpose |
+  |------|---------|
+  | `enrich_domain` | Reputation, WHOIS, threat tags |
+  | `enrich_url` | URL-specific threat analysis |
+  | `umbrella_reporting_activity_get` | DNS query history |
+
+  ### Investigating a File
+  | Tool | Purpose |
+  |------|---------|
+  | `enrich_file` | Hash reputation, malware family |
+
+  ### Finding Assets
+  | Tool | Purpose |
+  |------|---------|
+  | `get_assets` | Search by IP, hostname, OS |
+  | `get_asset_by_id` | Full asset details |
+  | `mac_lookup_arista` | Locate device by MAC |
+
+  ### Security Issues
+  | Tool | Purpose |
+  |------|---------|
+  | `get_issues_tool` | Search issues by severity/status |
+  | `get_cases` | Query cases with custom filters |
+  | `get_assessment_results` | Vulnerability findings |
+
+  ### Managing Lookups
+  | Tool | Purpose |
+  |------|---------|
+  | `get_datasets` | List available datasets |
+  | `get_lookup_data` | Query lookup table |
+  | `add_lookup_data` | Insert/update records |
+  | `remove_lookup_data` | Delete records |
+  | `create_dataset` | Create new lookup |
+
+  ---
+
+  ## Common Workflows
+
+  **Alert Triage:**
+  1. `enrich_ip` → Get threat intel
+  2. `get_lookup_data` (agentic_subnet_lookup) → Identify location
+  3. `query_corelight_logs` → Review network activity
+
+  **Device Location:**
+  1. `ip_lookup_arista` or `mac_lookup_arista` → Find switch/port
+  2. `get_assets` → Get endpoint details
+
+  **DNS Investigation:**
+  1. `enrich_domain` → Domain reputation
+  2. `umbrella_reporting_activity_get` → DNS query history
+
+  ---
+
+  ## Key Notes
+  - **Training Room traffic** may contain expected attack patterns
+  - **Don't recommend blocking** internal students/guests
+  - Always use `agentic_subnet_lookup` to identify physical locations
+  - Log queries cover **last 30 minutes** by default
+sectionorder:
+- Connect
+- Collect
+configuration:
+- supportedModules: []
+  section: Connect
+  display: XSIAM API URL (e.g.,https://api-test.xdr.us.paloaltonetworks.com)
+  name: xsiam_api_url
+  defaultvalue: https://api-test.xdr.us.paloaltonetworks.com
+  type: 0
+  required: true
+- supportedModules: []
+  display: XSIAM Key ID
+  name: xsiam_key_id
+  type: 4
+  required: true
+- supportedModules: []
+  display: XSIAM Standard Key
+  name: xsiam_standard_key
+  type: 4
+  required: true
+- supportedModules: []
+  display: MCP Port
+  name: mcp_port
+  defaultvalue: "9010"
+  type: 0
+  required: false
+- supportedModules: []
+  display: MCP Authentication Key
+  name: mcp_key
+  type: 4
+  required: true
+- supportedModules: []
+  display: MCP Transport (stdio/streamable-http)
+  name: mcp_transport
+  defaultvalue: streamable-http
+  type: 0
+  required: false
+- supportedModules: []
+  display: MCP Path
+  name: mcp_path
+  defaultvalue: /api/v1/stream/mcp
+  type: 0
+  required: false
+- supportedModules: []
+  display: SSL Certificate PEM
+  name: ssl_pem
+  type: 4
+  required: false
+- supportedModules: []
+  display: SSL Certificate Key
+  name: ssl_key
+  type: 4
+  required: false
+- supportedModules: []
+  display: XSIAM Case ID for Agentic Commands
+  name: playground_id
+  type: 0
+  required: true
+- supportedModules: []
+  display: Slack Bot Token for Download Slack Files
+  name: slack_bot_token
+  type: 4
+  required: false
+- supportedModules: []
+  display: Long running instance
+  name: longRunning
+  type: 8
+  required: false
+- supportedModules: []
+  display: Port mapping (<port> or <host port>:<docker port>)
+  name: longRunningPort
+  type: 0
+  required: false
+- supportedModules: []
+  display: Alert type
+  name: alertType
+  type: 13
+  required: false
+script:
+  commands:
+  - supportedModules: []
+    name: helloworld-say-hello
+    arguments:
+    - supportedModules: []
+      name: name
+      description: The name of whom you want to say hello to.
+    outputs:
+    - contextPath: hello
+      description: Should be Hello **something** here.
+      type: String
+    description: Hello command - prints hello to anyone.
+  - supportedModules: []
+    name: helloworld-alert-list
+    arguments:
+    - supportedModules: []
+      name: alert_id
+      description: Filter by alert item ID. If not provided, all IDs will be retrieved.
+    - supportedModules: []
+      name: limit
+      description: How many alerts to fetch. Default is 10.
+    - supportedModules: []
+      name: severity
+      description: The severity by which to filter the alerts.
+    outputs:
+    - contextPath: HelloWorld.alert.id
+      description: The ID of the alert.
+      type: Number
+    - contextPath: HelloWorld.alert.name
+      description: The name of the alert.
+      type: String
+    - contextPath: HelloWorld.alert.severity
+      description: The severity of the alert.
+      type: String
+    - contextPath: HelloWorld.alert.date
+      description: The date of the alert occurrence.
+      type: Date
+    - contextPath: HelloWorld.alert.status
+      description: The status of the alert.
+      type: String
+    description: Lists the example alerts as it would be fetched from the API.
+  - supportedModules: []
+    name: helloworld-alert-note-create
+    arguments:
+    - supportedModules: []
+      name: alert_id
+      required: true
+      description: The alert's ID to add the note to.
+    - supportedModules: []
+      name: note_text
+      required: true
+      description: The comment to add to the note.
+    outputs:
+    - contextPath: HelloWorld.alert.id
+      description: The ID of the alert.
+      type: Number
+    - contextPath: HelloWorld.alert.name
+      description: The name of the alert.
+      type: String
+    - contextPath: HelloWorld.alert.severity
+      description: The severity of the alert.
+      type: String
+    - contextPath: HelloWorld.alert.date
+      description: The date of the alert occurrence.
+      type: Date
+    - contextPath: HelloWorld.alert.status
+      description: The status of the alert.
+      type: String
+    description: Example of creating a new item in the API.
+  - supportedModules: []
+    name: ip
+    arguments:
+    - supportedModules: []
+      name: ip
+      default: true
+      description: A comma-separated list of IPs.
+      isArray: true
+    - supportedModules: []
+      name: threshold
+      description: If the IP has a reputation above the threshold, then the IP is
+        defined as malicious. If a threshold not set, then threshold from the instance
+        configuration is used.
+      defaultValue: "65"
+    outputs:
+    - contextPath: DBotScore.Indicator
+      description: The indicator that was tested.
+      type: String
+    - contextPath: DBotScore.Score
+      description: The actual score.
+      type: Number
+    - contextPath: DBotScore.Type
+      description: The indicator type.
+      type: String
+    - contextPath: DBotScore.Vendor
+      description: The vendor used to calculate the score.
+      type: String
+    - contextPath: HelloWorld.IP.asn
+      description: The autonomous system name for the IP address.
+      type: String
+    - contextPath: HelloWorld.IP.asn_cidr
+      description: The ASN CIDR.
+      type: String
+    - contextPath: HelloWorld.IP.asn_country_code
+      description: The ASN country code.
+      type: String
+    - contextPath: HelloWorld.IP.asn_date
+      description: The date on which the ASN was assigned.
+      type: Date
+    - contextPath: HelloWorld.IP.asn_description
+      description: The ASN description.
+      type: String
+    - contextPath: HelloWorld.IP.asn_registry
+      description: The registry the ASN belongs to.
+      type: String
+    - contextPath: HelloWorld.IP.entities
+      description: Entities associated to the IP.
+      type: String
+    - contextPath: HelloWorld.IP.ip
+      description: The actual IP address.
+      type: String
+    - contextPath: HelloWorld.IP.network.cidr
+      description: Network CIDR for the IP address.
+      type: String
+    - contextPath: HelloWorld.IP.network.country
+      description: The country of the IP address.
+      type: Unknown
+    - contextPath: HelloWorld.IP.network.end_address
+      description: The last IP address of the CIDR.
+      type: String
+    - contextPath: HelloWorld.IP.network.events.action
+      description: The action that happened on the event.
+      type: String
+    - contextPath: HelloWorld.IP.network.events.actor
+      description: The actor that performed the action on the event.
+      type: Unknown
+    - contextPath: HelloWorld.IP.network.events.timestamp
+      description: The timestamp when the event occurred.
+      type: String
+    - contextPath: HelloWorld.IP.network.handle
+      description: The handle of the network.
+      type: String
+    - contextPath: HelloWorld.IP.network.ip_version
+      description: The IP address version.
+      type: String
+    - contextPath: HelloWorld.IP.network.links
+      description: Links associated to the IP address.
+      type: String
+    - contextPath: HelloWorld.IP.network.name
+      description: The name of the network.
+      type: String
+    - contextPath: HelloWorld.IP.network.notices.description
+      description: The description of the notice.
+      type: String
+    - contextPath: HelloWorld.IP.network.notices.links
+      description: Links associated with the notice.
+      type: Unknown
+    - contextPath: HelloWorld.IP.network.notices.title
+      description: Title of the notice.
+      type: String
+    - contextPath: HelloWorld.IP.network.parent_handle
+      description: Handle of the parent network.
+      type: String
+    - contextPath: HelloWorld.IP.network.raw
+      description: Additional raw data for the network.
+      type: Unknown
+    - contextPath: HelloWorld.IP.network.remarks
+      description: Additional remarks for the network.
+      type: Unknown
+    - contextPath: HelloWorld.IP.network.start_address
+      description: The first IP address of the CIDR.
+      type: String
+    - contextPath: HelloWorld.IP.network.status
+      description: Status of the network.
+      type: String
+    - contextPath: HelloWorld.IP.network.type
+      description: The type of the network.
+      type: String
+    - contextPath: HelloWorld.IP.query
+      description: IP address that was queried.
+      type: String
+    - contextPath: HelloWorld.IP.raw
+      description: Additional raw data for the IP address.
+      type: Unknown
+    - contextPath: HelloWorld.IP.score
+      description: Reputation score from HelloWorld for this IP (0 to 100, where higher
+        is worse).
+      type: Number
+    - contextPath: IP.Address
+      description: IP address.
+      type: String
+    - contextPath: IP.Malicious.Vendor
+      description: The vendor reporting the IP address as malicious.
+      type: String
+    - contextPath: IP.Malicious.Description
+      description: A description explaining why the IP address was reported as malicious.
+      type: String
+    - contextPath: IP.ASN
+      description: The autonomous system name for the IP address.
+      type: String
+    - contextPath: IP.Relationships.EntityA
+      description: The source of the relationship.
+      type: string
+    - contextPath: IP.Relationships.EntityB
+      description: The destination of the relationship.
+      type: string
+    - contextPath: IP.Relationships.Relationship
+      description: The name of the relationship.
+      type: string
+    - contextPath: IP.Relationships.EntityAType
+      description: The type of the source of the relationship.
+      type: string
+    - contextPath: IP.Relationships.EntityBType
+      description: The type of the destination of the relationship.
+      type: string
+    description: Return IP information and reputation.
+  script: |
+    import os
+    import sys
+    import json
+    import logging
+    import asyncio
+    import signal
+    import time
+    import re
+    import io
+    import secrets
+    import inspect
+    import atexit
+    import tempfile
+    import traceback
+    import faulthandler
+    from typing import Any, Optional, Annotated, Callable, Sequence, Dict, List
+    from dataclasses import dataclass
+    from abc import ABC, abstractmethod
+    from contextlib import asynccontextmanager
+    from pathlib import Path
+
+    # Enable advanced FastMCP OpenAPI parser for enhanced API specification processing
+    os.environ.setdefault("FASTMCP_EXPERIMENTAL_ENABLE_NEW_OPENAPI_PARSER", "true")
+    EXIT_LOG_PATH = "/tmp/orion_exit.log"
+
+
+    # 3rd Party Imports
+    import httpx
+    from httpx import ConnectError, RequestError, TimeoutException
+    import uvicorn
+    from starlette.requests import Request
+    from starlette.responses import JSONResponse
+    from starlette.middleware.base import BaseHTTPMiddleware
+    from pydantic import Field, BaseModel
+    from pydantic_settings import BaseSettings, SettingsConfigDict
+    from fastmcp import FastMCP, Context
+    from fastmcp.server.server import Transport
+    from fastmcp.resources import Resource
+    from fastmcp.tools import Tool
+    from fastmcp.prompts import Prompt
+    from pythonjsonlogger import jsonlogger
+
+    # Handle Auth Provider Import
+    try:
+        from fastmcp.server.auth import AuthProvider
+        from mcp.server.auth.provider import AccessToken
+    except ImportError:
+        # Fallback for local dev if mcp not installed, though usage implies it is
+        class AuthProvider: pass
+        @dataclass
+        class AccessToken:
+            token: str
+            expires_at: Optional[int] = None
+
+
+
+    # ==========================================
+    # EMBEDDED RESOURCES
+    # ==========================================
+
+    ISSUES_RESPONSE_JSON = r"""{
+      "reply": {
+        "total_count": 0,
+        "result_count": 0,
+        "issues": [
+          {
+            "issue_id": 123,
+            "name": "Suspicious Network Activity",
+            "severity": "HIGH",
+            "status": "New"
+          }
+        ]
+      }
+    }"""
+
+    LLM_FORMATTING_BASE_INSTRUCTIONS = """
+    When using the Cortex MCP security cases and issues tools, follow these guidelines:
+    1. NEVER fabricate data. Use exact data returned by API.
+    2. Format security data using markdown tables where possible.
+    3. Be concise.
+    """
+
+    # ==========================================
+    # CONFIGURATION
+    # ==========================================
+
+    class Settings(BaseSettings):
+        mcp_transport: str = Field("stdio", validation_alias="MCP_TRANSPORT")
+        mcp_host: str = Field("0.0.0.0", validation_alias="MCP_HOST")
+        mcp_port: int = Field(8080, validation_alias="MCP_PORT")
+        mcp_path: str = Field("/api/v1/stream/mcp", validation_alias="MCP_PATH")
+
+        ssl_cert_file: str | None = Field(None, validation_alias="SSL_CERT_FILE")
+        ssl_key_file: str | None = Field(None, validation_alias="SSL_KEY_FILE")
+        ssl_cert_pem: str | None = Field(None, validation_alias="SSL_CERT_PEM")
+        ssl_key_pem: str | None = Field(None, validation_alias="SSL_KEY_PEM")
+
+        papi_url_env_key: str = Field("", validation_alias="CORTEX_MCP_PAPI_URL")
+        papi_auth_header_key: str = Field("", validation_alias="CORTEX_MCP_PAPI_AUTH_HEADER")
+        papi_auth_id_key: str = Field("", validation_alias="CORTEX_MCP_PAPI_AUTH_ID")
+        playground_id: str | None = Field(None, validation_alias="PLAYGROUND_ID")
+
+        log_level: str = Field("DEBUG", validation_alias="LOG_LEVEL")
+        log_file_path: str | None = Field(None, validation_alias="LOG_FILE_PATH")
+
+        model_config = SettingsConfigDict(env_file=None, extra="ignore")
+
+    config_instance = None
+    def get_config():
+        global config_instance
+        if config_instance is None: config_instance = Settings()
+        return config_instance
+
+    def reload_config():
+        global config_instance
+        config_instance = Settings()
+        return config_instance
+
+    # ==========================================
+    # EXCEPTIONS
+    # ==========================================
+
+    class PAPIClientError(Exception): pass
+    class PAPIConnectionError(PAPIClientError): pass
+    class PAPIAuthenticationError(PAPIClientError): pass
+    class PAPIServerError(PAPIClientError): pass
+    class PAPIClientRequestError(PAPIClientError): pass
+    class PAPIResponseError(PAPIClientError): pass
+
+    # ==========================================
+    # UTILS & LOGGING
+    # ==========================================
+
+    class LoggingMiddleware(BaseHTTPMiddleware):
+        async def dispatch(self, request: Request, call_next):
+            start_time = time.time()
+
+            # Capture request body
+            req_body_bytes = await request.body()
+            req_body = req_body_bytes.decode() if req_body_bytes else None
+
+            response = await call_next(request)
+            process_time = time.time() - start_time
+
+            # Capture response body
+            res_body = None
+            if hasattr(response, "body_iterator"):
+                # For streaming responses, wrap the iterator to capture content
+                res_body = "[Streaming Response]"
+
+                # Store original iterator
+                original_iterator = response.body_iterator
+
+                async def captured_iterator():
+                    content_buffer = []
+                    try:
+                        async for chunk in original_iterator:
+                            if isinstance(chunk, bytes):
+                                content_buffer.append(chunk.decode(errors="replace"))
+                            elif isinstance(chunk, str):
+                                content_buffer.append(chunk)
+                            yield chunk
+                    finally:
+                        pass
+                        # Log completion if needed (omitted for brevity)
+
+                # Replace the iterator
+                response.body_iterator = captured_iterator()
+
+            else:
+                if hasattr(response, "body"):
+                    res_body = response.body.decode()
+
+            extra_data = {
+                "method": request.method,
+                "path": request.url.path,
+                "status_code": response.status_code,
+                "duration": process_time,
+                "client_ip": request.client.host if request.client else None,
+                "request_payload": req_body,
+                "response_payload": res_body
+            }
+
+            logging.getLogger("Cortex MCP").info("Incoming request", extra=extra_data)
+            return response
+
+    def create_response(data: dict, is_error: bool = False) -> str:
+        if "success" not in data: data["success"] = not is_error
+        return json.dumps(data, indent=2, ensure_ascii=False)
+
+    def read_resource(file_path: str) -> str:
+        if file_path == "issues_response.json": return ISSUES_RESPONSE_JSON
+        return "{}"
+
+    def get_papi_auth_headers(api_key: str, api_key_id: str) -> dict:
+        return {"Authorization": api_key, "X-XDR-AUTH-ID": api_key_id}
+
+    def get_papi_url(papi_url_value: str) -> str:
+        url = papi_url_value
+        if not url: return ""
+        if not url.startswith("https://"):
+            if url.startswith("http://"): url = url.replace("http://", "https://")
+            else: url = f"https://{url}"
+        if "api-" not in url: url = url.replace("https://", "https://api-")
+        return url
+
+    def setup_logging(config: BaseSettings):
+        class DemistoHandler(logging.Handler):
+            def emit(self, record: logging.LogRecord) -> None:
+                msg = self.format(record)
+                try:
+                    if record.levelno >= logging.ERROR:
+                        demisto.error(msg)
+                    else:
+                        demisto.info(msg)
+                except Exception:
+                    pass
+
+        handlers = []
+        demisto_handler = DemistoHandler()
+        formatter = logging.Formatter(fmt="%(name)s | %(message)s", datefmt="%H:%M:%S")
+        demisto_handler.setFormatter(formatter)
+        handlers.append(demisto_handler)
+
+        if config.log_file_path:
+            file_handler = logging.FileHandler(config.log_file_path)
+            json_formatter = jsonlogger.JsonFormatter(
+                "%(asctime)s %(levelname)s %(name)s %(message)s",
+                datefmt="%Y-%m-%dT%H:%M:%S%z",
+                rename_fields={"levelname": "severity", "asctime": "timestamp"}
+            )
+            file_handler.setFormatter(json_formatter)
+            handlers.append(file_handler)
+
+        root_logger = logging.getLogger()
+        root_logger.setLevel(config.log_level)
+        root_logger.handlers.clear()
+        for h in handlers: root_logger.addHandler(h)
+
+        for name in ("uvicorn", "uvicorn.access", "uvicorn.error"):
+            l = logging.getLogger(name)
+            l.propagate = False
+            l.handlers.clear()
+            for h in handlers: l.addHandler(h)
+
+        for name in ("mcp.server.lowlevel.server", "httpx", "httpcore", "urllib3"):
+            logging.getLogger(name).setLevel(logging.WARNING)
+
+        return root_logger
+
+
+    def _log_exit_event(event: str, exc: BaseException | None = None):
+        """Persist exit/signal events so we can see why the container stopped."""
+        timestamp = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        lines = [f"[{timestamp}] {event}"]
+        if exc:
+            lines.append(f"Exception: {exc!r}")
+            lines.append("Traceback:")
+            lines.extend(traceback.format_exception(exc))
+        payload = "\n".join(lines) + "\n"
+        try:
+            with open(EXIT_LOG_PATH, "a", encoding="utf-8") as fh:
+                fh.write(payload)
+        except Exception:
+            # Best-effort logging; ignore file write errors
+            pass
+        try:
+            demisto.error(payload)
+        except Exception:
+            # demisto might not be available in local dev
+            pass
+        try:
+            # Persist to integration context so it survives container teardown.
+            ctx = demisto.getIntegrationContext() if hasattr(demisto, "getIntegrationContext") else {}
+            ctx["last_exit_event"] = payload
+            if hasattr(demisto, "setIntegrationContext"):
+                demisto.setIntegrationContext(ctx)
+        except Exception:
+            pass
+
+
+    # Enable faulthandler to capture hard crashes to stderr/file
+    try:
+        faulthandler.enable()
+    except Exception:
+        pass
+
+    # Log termination signals
+    def _signal_handler(signum, frame):
+        _log_exit_event(f"Received signal {signum}")
+
+
+    for _sig in (signal.SIGTERM, signal.SIGINT):
+        try:
+            signal.signal(_sig, _signal_handler)
+        except Exception:
+            pass
+
+    # Log interpreter exit
+    atexit.register(_log_exit_event, "atexit")
+    # Catch unhandled exceptions globally
+    sys.excepthook = lambda exctype, value, tb: _log_exit_event("Unhandled exception", value)
+
+    # ==========================================
+    # CLIENT & FETCHER
+    # ==========================================
+
+    class PAPIClient(httpx.AsyncClient):
+        def __init__(self, base_url: str, headers: dict[str, str], timeout: int = 120, **kwargs):
+            if 'timeout' not in kwargs: kwargs['timeout'] = timeout
+            if 'follow_redirects' not in kwargs: kwargs['follow_redirects'] = True
+            super().__init__(base_url=base_url, headers=headers, **kwargs)
+
+        def _get_default_headers(self) -> httpx.Headers:
+            headers = self.headers
+            headers.update({'Content-Type': 'application/json'})
+            return headers
+
+        async def send(self, request: httpx.Request, *, auth=httpx.USE_CLIENT_DEFAULT, follow_redirects=httpx.USE_CLIENT_DEFAULT) -> httpx.Response:
+            # FORCE CORRECT CREDENTIALS
+            client_auth = self.headers.get("Authorization")
+            client_auth_id = self.headers.get("X-XDR-AUTH-ID")
+
+            if client_auth and "Authorization" in request.headers and request.headers["Authorization"] != client_auth:
+                 request.headers["Authorization"] = client_auth
+            if client_auth_id and "X-XDR-AUTH-ID" in request.headers and request.headers["X-XDR-AUTH-ID"] != client_auth_id:
+                 request.headers["X-XDR-AUTH-ID"] = client_auth_id
+
+            if client_auth and "Authorization" not in request.headers:
+                request.headers["Authorization"] = client_auth
+            if client_auth_id and "X-XDR-AUTH-ID" not in request.headers:
+                request.headers["X-XDR-AUTH-ID"] = client_auth_id
+
+            return await super().send(request, auth=auth, follow_redirects=follow_redirects)
+
+        async def request(self, method: str, url: str, **kwargs) -> dict:
+            logger = logging.getLogger("PAPIClient")
+
+            # Merge headers
+            if 'headers' not in kwargs:
+                kwargs['headers'] = self._get_default_headers()
+            else:
+                default_headers = self._get_default_headers()
+                default_headers.update(kwargs['headers'])
+                kwargs['headers'] = default_headers
+
+            full_url = f'{self.base_url}{url}'
+            debug_headers = kwargs['headers'].copy()
+            if "Authorization" in debug_headers: debug_headers["Authorization"] = "MASKED"
+            logger.info(f"Sending request to {full_url} with headers {debug_headers}")
+
+            try:
+                response = await super().request(method=method, url=url, **kwargs)
+            except Exception as e:
+                logger.exception(f"Request failed: {url}")
+                raise PAPIConnectionError(str(e))
+
+            if response is None:
+                 raise PAPIResponseError("Received None response")
+
+            if response.status_code == 401:
+                 raise PAPIAuthenticationError(f"Auth failed: {response.status_code} {response.text}")
+            elif response.status_code == 403:
+                 raise PAPIAuthenticationError(f"Authorization failed: {response.status_code} {response.text}")
+            elif response.status_code >= 500:
+                 raise PAPIServerError(f"Server error: {response.text}")
+            elif response.status_code >= 400:
+                 raise PAPIClientRequestError(f"Client error: {response.text}")
+
+            try: return response.json()
+            except json.JSONDecodeError as e:
+                 raise PAPIResponseError(f"Invalid JSON: {e}")
+
+    class Fetcher:
+        def __init__(self, url: str, api_key: str, api_key_id: str):
+            self.url = url
+            self.api_key = api_key
+            self.api_key_id = api_key_id
+
+        async def send_request(self, path: str, method: str = "POST", data: Optional[dict | str] = None) -> dict:
+            if "/public_api/v1" not in path:
+                path = os.path.join("/public_api/v1", path.lstrip("/"))
+
+            headers = get_papi_auth_headers(self.api_key, self.api_key_id)
+            async with PAPIClient(self.url, headers) as client:
+                return await client.request(method, path, json=data, headers=headers)
+
+    @dataclass
+    class MCPContext:
+        auth_headers: dict[str, str]
+
+    async def get_fetcher(ctx: Context) -> Fetcher:
+        config = get_config()
+        url = get_papi_url(config.papi_url_env_key)
+        lifespan: MCPContext = ctx.request_context.lifespan_context
+        api_key = lifespan.auth_headers.get("Authorization")
+        xdr_id = lifespan.auth_headers.get("X-XDR-AUTH-ID")
+        if not (api_key and xdr_id):
+            api_key = config.papi_auth_header_key
+            xdr_id = config.papi_auth_id_key
+
+        return Fetcher(url, api_key, xdr_id)
+
+    # ==========================================
+    # AUTH PROVIDER
+    # ==========================================
+
+    class EnvTokenAuthProvider(AuthProvider):
+        def __init__(self, token: str, base_url: str | None = None, required_scopes: Sequence[str] | None = None):
+            if not token: raise ValueError("Token required")
+            self._token = token
+            super().__init__(base_url=base_url, required_scopes=list(required_scopes or []))
+
+        async def verify_token(self, token: str) -> AccessToken | None:
+            if not token or not secrets.compare_digest(token, self._token): return None
+            # Return a valid AccessToken object as expected by middleware
+            # 3600s check is arbitrary, just ensuring it's valid
+            expiry = int(time.time()) + 3600
+            return AccessToken(token=token, expires_at=expiry, client_id="system", scopes=[])
+
+    # ==========================================
+    # MODULES
+    # ==========================================
+
+    class BaseModule(ABC):
+        def __init__(self, mcp: FastMCP): self.mcp = mcp
+        @abstractmethod
+        def register_tools(self): pass
+        @abstractmethod
+        def register_resources(self): pass
+
+        def _add_tool(self, fn: Callable, description: str = None):
+            try:
+                tool = Tool.from_function(fn, name=None, description=description)
+                self.mcp.add_tool(tool)
+            except Exception as e:
+                logging.error(f"Error adding tool {fn.__name__}: {e}")
+
+        def _add_resource(self, fn: Callable, uri: str, name: str, description: str, mime_type: str = 'application/json'):
+            try:
+                resource = Resource.from_function(fn, uri, name=name, description=description, mime_type=mime_type)
+                self.mcp.add_resource(resource)
+            except Exception as e:
+                logging.error(f"Error adding resource {name}: {e}")
+
+        def _add_prompt(self, fn: Callable, name: str, description: str):
+            try:
+                prompt = Prompt.from_function(fn, name=name, description=description)
+                self.mcp.add_prompt(prompt)
+            except Exception as e:
+                logging.error(f"Error adding prompt {name}: {e}")
+
+    # --- Integration Tools ---
+
+    class IntegrationTools(BaseModule):
+        """
+        Integration tools for Troy SOC security operations.
+
+        These tools interface with Cortex XSIAM (the Central Brain), Arista network fabric,
+        Corelight NDR, and other integrated security platforms in the Troy network.
+
+        Data Flow Context:
+        - Logs flow: Arista/Cisco/Corelight -> Palo Alto (XSIAM)
+        - Response actions: Palo Alto -> Arista (Blocking/Quarantine)
+        - Network taps: Arista -> Corelight (Deep Inspection)
+        """
+
+        def __init__(self, mcp):
+            super().__init__(mcp)
+            config = get_config()
+            self.api_url = get_papi_url(config.papi_url_env_key)
+            self.headers = get_papi_auth_headers(config.papi_auth_header_key, config.papi_auth_id_key)
+            base_root_url = self.api_url.split("/public_api")[0].rstrip("/")
+            self.client = PAPIClient(base_root_url, self.headers)
+            self.playground_id = config.playground_id
+
+        async def _get_playground_id(self) -> str:
+            """
+            Retrieves the ID of a Playground (War Room) where we can execute commands.
+            Osiris now requires the playground ID to be provided via config/params.
+            """
+            if self.playground_id:
+                logging.info(f"Using configured Playground ID: {self.playground_id}")
+                return self.playground_id
+
+            logging.error("No Playground ID configured. Set PLAYGROUND_ID in params/environment.")
+            return None
+
+        async def execute_command(self, command: str, return_context_keys: str = None, _retried: bool = False) -> str:
+            """
+            Execute a raw XSOAR/XSIAM command in the playground.
+            """
+            playground_id = await self._get_playground_id()
+            if not playground_id:
+                return "Error: Could not find a valid Playground/War Room to execute the command."
+
+            logging.info(f"Executing command '{command}' in playground {playground_id}")
+
+            context_keys = [k.strip() for k in return_context_keys.split(",")] if return_context_keys else []
+
+            # 1. Clear Context if requested
+            if context_keys:
+                for key in context_keys:
+                    try:
+                        await self.client.request(
+                            "POST",
+                            "/xsoar/public/v1/entry",
+                            json={
+                                "investigationId": playground_id,
+                                "data": f"!DeleteContext key={key}"
+                            }
+                        )
+                    except PAPIClientRequestError as e:
+                        if ("Could not find investigation" in str(e) or "noInv" in str(e)):
+                            logging.error(f"Playground '{playground_id}' not found while clearing context. Please provide a valid PLAYGROUND_ID.")
+                            return f"Error: Playground '{playground_id}' not found; cannot run command."
+                        logging.warning(f"Failed to clear context key {key}: {e}")
+                    except Exception as e:
+                        logging.warning(f"Failed to clear context key {key}: {e}")
+
+            # 2. Execute the Command
+            # Endpoint: /xsoar/entry/execute/sync
+            url = "/xsoar/entry/execute/sync"
+            payload = {
+                "investigationId": playground_id,
+                "data": command
+            }
+
+            try:
+                response = await self.client.request(
+                    "POST",
+                    url,
+                    json=payload
+                )
+
+                # If we only want War Room output (no context keys)
+                if not context_keys:
+                    entries = response if isinstance(response, list) else [response]
+                    output_text = ""
+                    for entry in entries:
+                        if entry.get("type") == 1:
+                            continue
+
+                        contents = entry.get("contents", "")
+                        if entry.get("type") == 4: # Error
+                             output_text += f"Error: {contents}\n"
+                        else:
+                             output_text += f"{contents}\n"
+
+                    return output_text.strip() if output_text else "Command executed (no text output returned)."
+
+            except PAPIClientRequestError as e:
+                if ("Could not find investigation" in str(e) or "noInv" in str(e)):
+                    logging.error(f"Playground '{playground_id}' not found. Command cannot be executed. Set a valid PLAYGROUND_ID.")
+                    return f"Error executing command: playground '{playground_id}' not found."
+                logging.error(f"Command execution failed: {e}")
+                return f"Error executing command: {str(e)}"
+            except Exception as e:
+                logging.error(f"Command execution failed: {e}")
+                return f"Error executing command: {str(e)}"
+
+            # 3. Retrieve Context (if requested)
+            results = {}
+            for key in context_keys:
+                context_url = f"/xsoar/public/v1/investigation/{playground_id}/context"
+                try:
+                    ctx_response = await self.client.request(
+                        "POST",
+                        context_url,
+                        json={"query": f"${{{key}}}"} # syntax: ${Key}
+                    )
+                    results[key] = ctx_response
+                except Exception as e:
+                    logging.error(f"Failed to retrieve context key {key}: {e}")
+                    results[key] = f"Error: {str(e)}"
+
+            return json.dumps(results, indent=2)
+
+        async def enrich_indicator(self, indicator_type: str, value: str) -> str:
+            cmd_map = {
+                "ip": ("!ip ip={}", "IP,DBotScore,IPinfo,AutoFocus"),
+                "url": ("!url url={}", "URL,DBotScore,AutoFocus"),
+                "domain": ("!domain domain={}", "Domain,DBotScore,Whois,AutoFocus"),
+                "file": ("!file file={}", "File,DBotScore"),
+                "cve": ("!cve cve_id={}", "CVE")
+            }
+            normalized_type = indicator_type.lower()
+            if normalized_type not in cmd_map: return f"Unsupported type: {indicator_type}"
+            command_template, context_keys = cmd_map[normalized_type]
+            command = command_template.format(f'"{value}"')
+            return await self.execute_command(command, return_context_keys=context_keys)
+
+        async def enrich_ip(
+            self,
+            ip: Annotated[str, Field(
+                description="The IPv4 or IPv6 address to investigate. Can be internal Troy network IPs "
+                            "(Training Rooms, Registration Servers) or external attacker IPs. "
+                            "Examples: '192.168.1.100', '10.0.50.25', '8.8.8.8'"
+            )]
+        ) -> str:
+            """
+            Enrich an IP address with comprehensive threat intelligence data from multiple sources.
+
+            **When to use this tool:**
+            - When investigating suspicious network activity from an IP address
+            - When an alert mentions a source or destination IP that needs context
+            - When correlating Corelight NDR hits with threat intelligence
+            - When you need to determine if an IP is malicious, a known attacker, or benign
+            - Before recommending any response actions involving an IP address
+
+            **What this tool returns:**
+            - IP reputation and threat scores (DBotScore)
+            - Geolocation and ISP information (IPinfo)
+            - AutoFocus threat intelligence tags and campaigns
+            - Historical malicious activity associated with the IP
+
+            **Troy SOC Context:**
+            - Internal IPs from Training Rooms may show attack traffic (expected behavior)
+            - Registration Server IPs may be targeted by external threats
+            - Use in conjunction with `agentic_subnet_lookup` dataset to identify physical location
+
+            **Example scenarios:**
+            - "Investigate 10.20.30.40 flagged by Corelight" -> Use this tool
+            - "Check if 203.0.113.50 is a known threat actor" -> Use this tool
+            - "Get reputation for IPs in this alert" -> Use this tool
+            """
+            return await self.enrich_indicator("ip", ip)
+
+        async def enrich_file(
+            self,
+            file_hash: Annotated[str, Field(
+                description="The file hash to investigate. Accepts MD5, SHA1, or SHA256 hash formats. "
+                            "Examples: 'd41d8cd98f00b204e9800998ecf8427e' (MD5), "
+                            "'da39a3ee5e6b4b0d3255bfef95601890afd80709' (SHA1), "
+                            "'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' (SHA256)"
+            )]
+        ) -> str:
+            """
+            Enrich a file hash with malware analysis and threat intelligence data.
+
+            **When to use this tool:**
+            - When investigating a suspicious file detected by endpoint security
+            - When Cisco submits a file to Palo Alto for analysis
+            - When you have a hash from a security alert or incident
+            - When determining if a file is malware, PUA, or legitimate
+            - When investigating file-based IOCs from threat intelligence feeds
+
+            **What this tool returns:**
+            - File reputation and threat classification (DBotScore)
+            - Malware family identification if applicable
+            - File metadata and analysis results
+            - Associated threat campaigns and actors
+
+            **Troy SOC Context:**
+            - Files submitted from Cisco Meraki IoT devices or endpoints flow to Palo Alto for analysis
+            - Training Room activities may involve known malware samples (expected)
+            - Always correlate file findings with network traffic from Corelight
+
+            **Example scenarios:**
+            - "Check if this hash is malware: abc123..." -> Use this tool
+            - "Investigate file from Cisco submission" -> Use this tool
+            - "Look up the malware hash from the alert" -> Use this tool
+            """
+            return await self.enrich_indicator("file", file_hash)
+
+        async def enrich_domain(
+            self,
+            domain: Annotated[str, Field(
+                description="The domain name to investigate. Do not include protocol (http/https) or paths. "
+                            "Examples: 'malicious-site.com', 'suspicious.example.org', 'c2-server.net'"
+            )]
+        ) -> str:
+            """
+            Enrich a domain with threat intelligence, WHOIS data, and reputation information.
+
+            **When to use this tool:**
+            - When investigating DNS queries to suspicious domains
+            - When analyzing C2 (Command & Control) communication indicators
+            - When a domain appears in phishing or malware alerts
+            - When you need domain registration and ownership details
+            - When correlating domain-based IOCs across the Troy network
+
+            **What this tool returns:**
+            - Domain reputation and threat scores (DBotScore)
+            - WHOIS registration information (registrar, dates, contacts)
+            - AutoFocus threat intelligence tags
+            - Associated malware families or threat campaigns
+            - Domain age and registration patterns
+
+            **Troy SOC Context:**
+            - DNS logs from Arista and Corelight feed into XSIAM for correlation
+            - Umbrella (Cisco) provides additional DNS security telemetry
+            - Training Rooms may query known malicious domains (expected behavior)
+
+            **Example scenarios:**
+            - "Check reputation of domain in DNS alert" -> Use this tool
+            - "Investigate potential C2 domain: evil.com" -> Use this tool
+            - "Who registered this phishing domain?" -> Use this tool
+            """
+            return await self.enrich_indicator("domain", domain)
+
+        async def enrich_url(
+            self,
+            url: Annotated[str, Field(
+                description="The full URL to investigate, including protocol and path. "
+                            "Examples: 'https://malicious-site.com/payload.exe', "
+                            "'http://phishing.example.org/login.html', "
+                            "'https://suspicious.net/download?id=malware'"
+            )]
+        ) -> str:
+            """
+            Enrich a URL with threat intelligence and reputation data.
+
+            **When to use this tool:**
+            - When investigating web traffic to suspicious URLs
+            - When analyzing URLs from phishing emails or messages
+            - When a URL appears in malware download alerts
+            - When checking if a specific URL path is associated with threats
+            - When you need more granular analysis than domain-level intelligence
+
+            **What this tool returns:**
+            - URL reputation and threat classification (DBotScore)
+            - AutoFocus threat intelligence
+            - Associated malware or phishing campaigns
+            - URL categorization and risk indicators
+
+            **Troy SOC Context:**
+            - HTTP/HTTPS logs from Corelight provide URL-level visibility
+            - Palo Alto Strata Network Security analyzes URL traffic in real-time
+            - Use when domain enrichment isn't specific enough
+
+            **Example scenarios:**
+            - "Is this download URL malicious?" -> Use this tool
+            - "Check the URL from the phishing alert" -> Use this tool
+            - "Analyze URL with suspicious path pattern" -> Use this tool
+
+            **Note:** For domain-only queries, use `enrich_domain` instead for faster results.
+            """
+            return await self.enrich_indicator("url", url)
+
+        async def query_corelight_logs(
+            self,
+            ip_list: Annotated[str, Field(
+                description="One or more IP addresses to search for in Corelight HTTP logs. "
+                            "Can be provided as comma-separated values, space-separated, or in a sentence. "
+                            "The tool will extract all valid IPv4 addresses automatically. "
+                            "Examples: '192.168.1.100, 10.0.0.50', '192.168.1.100 and 10.0.0.50', "
+                            "'Check IPs 192.168.1.100, 10.0.0.50'"
+            )],
+            ctx: Context = None
+        ) -> str:
+            """
+            Query Corelight NDR HTTP logs for network activity involving specified IP addresses.
+
+            **When to use this tool:**
+            - When investigating network behavior for specific IPs seen in alerts
+            - When you need HTTP-level visibility into traffic patterns
+            - When correlating Corelight NDR alerts with specific endpoints
+            - When analyzing web traffic from Training Rooms or Registration Servers
+            - When looking for lateral movement or C2 communication patterns
+
+            **What this tool queries:**
+            - Corelight HTTP raw dataset in XSIAM
+            - Searches both source and destination IP fields
+            - Returns connection metadata including ports, bytes, and outcomes
+
+            **Data returned includes:**
+            - Source and target IPv4 addresses
+            - Event outcomes (success/failure)
+            - Username information if available
+            - Port information (source and destination)
+            - Data transfer sizes (sent_bytes)
+            - Observer product and event type
+
+            **Troy SOC Context:**
+            - Corelight receives raw traffic from Arista network taps
+            - Provides deep packet inspection and behavioral analytics
+            - HTTP logs reveal web-based attacks, data exfiltration, and C2
+            - Use with `agentic_subnet_lookup` to identify which Training Room or area
+
+            **Time range:** Queries the last 30 minutes of data by default.
+
+            **Example scenarios:**
+            - "Show HTTP activity for IPs in this Corelight alert" -> Use this tool
+            - "What web traffic did 10.0.50.25 generate?" -> Use this tool
+            - "Check Corelight for suspicious IPs 192.168.1.100, 10.0.0.50" -> Use this tool
+            """
+            ip_pattern = r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b'
+            ips = list(set(re.findall(ip_pattern, ip_list)))
+            if not ips: return f"Error: No valid IP addresses in {ip_list}"
+
+            formatted_ips = ", ".join([f'"{ip}"' for ip in ips])
+            query = f'''datamodel dataset = corelight_http_raw | filter XDM_ALIAS.ip in ({formatted_ips}) | fields xdm.source.ipv4 , xdm.target.ipv4 , xdm.event.outcome , xdm.source.user.username, xdm.target.port, xdm.source.port, xdm.target.sent_bytes, xdm.observer.product , xdm.event.type'''
+
+            return await self._run_xql(query, ctx)
+
+        async def query_paloalto_firewall_logs(
+            self,
+            ip_list: Annotated[str, Field(
+                description="One or more IP addresses to search for in Palo Alto NGFW threat logs. "
+                            "Can be provided as comma-separated values, space-separated, or in a sentence. "
+                            "The tool will extract all valid IPv4 addresses automatically. "
+                            "Examples: '192.168.1.100, 10.0.0.50', '192.168.1.100 and 10.0.0.50', "
+                            "'Check firewall logs for 203.0.113.50'"
+            )],
+            ctx: Context = None
+        ) -> str:
+            """
+            Query Palo Alto Networks NGFW threat logs for security events involving specified IPs.
+
+            **When to use this tool:**
+            - When investigating IPs that triggered firewall threat prevention
+            - When looking for blocked attacks or intrusion attempts
+            - When correlating network security events across the Troy infrastructure
+            - When you need to see what the Strata firewall detected for specific IPs
+            - When investigating external attack sources hitting the network perimeter
+
+            **What this tool queries:**
+            - Palo Alto NGFW threat raw dataset in XSIAM
+            - Searches both source and destination IP fields
+            - Returns threat detection metadata and outcomes
+
+            **Data returned includes:**
+            - Source and target IPv4 addresses
+            - Event outcomes (blocked, allowed, alerted)
+            - Username information if available
+            - Port information (source and destination)
+            - Data transfer metrics
+            - Observer product and threat event type
+
+            **Troy SOC Context:**
+            - Palo Alto Strata provides network security at the perimeter
+            - Threat Prevention inspects traffic for attacks, malware, and exploits
+            - Logs feed into XSIAM as the Central Brain for correlation
+            - Critical for understanding what was blocked vs. what got through
+
+            **Time range:** Queries the last 30 minutes of data by default.
+
+            **Example scenarios:**
+            - "Check firewall threat logs for attacking IP 203.0.113.50" -> Use this tool
+            - "What did the NGFW detect for these IPs?" -> Use this tool
+            - "Show Palo Alto threat events for 10.0.50.25, 192.168.1.100" -> Use this tool
+            """
+            ip_pattern = r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b'
+            ips = list(set(re.findall(ip_pattern, ip_list)))
+            if not ips: return f"Error: No valid IP addresses in {ip_list}"
+
+            formatted_ips = ", ".join([f'"{ip}"' for ip in ips])
+            query = f'''datamodel dataset = panw_ngfw_threat_raw | filter XDM_ALIAS.ip in ({formatted_ips}) | fields xdm.source.ipv4 , xdm.target.ipv4 , xdm.event.outcome , xdm.source.user.username, xdm.target.port, xdm.source.port, xdm.target.sent_bytes, xdm.observer.product , xdm.event.type'''
+
+            return await self._run_xql(query, ctx)
+
+        async def _run_xql(self, query: str, ctx: Context) -> str:
+            try:
+                fetcher = await get_fetcher(ctx)
+                to_ts = int(time.time() * 1000)
+                from_ts = to_ts - (30 * 60 * 1000)
+
+                start_payload = {"request_data": {"query": query, "timeframe": {"from": from_ts, "to": to_ts}}}
+                start_resp = await fetcher.send_request("xql/start_xql_query", data=start_payload)
+                query_id = start_resp.get("reply")
+                if not query_id: return f"Error starting XQL: {json.dumps(start_resp)}"
+
+                await asyncio.sleep(2)
+                results_payload = {"request_data": {"query_id": query_id, "pending_flag": False, "limit": 1000, "format": "json"}}
+                results_resp = await fetcher.send_request("xql/get_query_results", data=results_payload)
+                return json.dumps(results_resp)
+            except PAPIClientError as e:
+                return f"XQL Query Error: {str(e)}"
+            except Exception as e:
+                return f"Error running XQL: {str(e)}"
+
+        async def run_xql_query(
+            self,
+            query: Annotated[str, Field(
+                description="The XQL query to execute against Cortex XSIAM. Must be valid XQL syntax. "
+                            "Use get_xql_doc_tool for syntax reference and get_dataset_fields_tool for available fields per dataset. "
+                            "Example: 'datamodel dataset = panw_ngfw_traffic_raw | filter xdm.source.ipv4 = \"10.220.251.31\" | fields xdm.source.ipv4, xdm.target.ipv4, xdm.event.outcome | limit 100'"
+            )],
+            ctx: Context = None
+        ) -> str:
+            """
+            Execute a custom XQL query against Cortex XSIAM datasets.
+
+            **When to use this tool:**
+            - When you need to run a custom threat hunting query
+            - When the pre-built query_corelight_logs or query_paloalto_firewall_logs don't meet your needs
+            - When searching across different datasets or with custom filters
+            - When building complex queries with aggregations, joins, or sub-queries
+            - When investigating specific patterns that require custom XQL logic
+
+            **Before using this tool, call these helper tools:**
+            1. Call `get_xql_doc_tool` to understand XQL syntax, operators, and functions
+            2. Call `get_dataset_fields_tool` to know which fields are available for your target dataset
+            3. Call `get_xql_examples_tool` to see similar query patterns you can adapt
+
+            **Query structure:**
+            - Start with: `datamodel dataset = <dataset_name>`
+            - Add filters: `| filter <condition>`
+            - Select fields: `| fields <field1>, <field2>`
+            - Add aggregations: `| comp count() by <field>`
+            - Limit results: `| limit <number>`
+            - Alter to create new fields when needed: `| alter <field1> = <expression>`
+            - Sort results: `| sort [asc|desc] <field>`
+
+            **Available datasets include:**
+            - `panw_ngfw_traffic_raw` - Palo Alto firewall traffic logs
+            - `panw_ngfw_threat_raw` - Palo Alto threat detection logs
+            - `corelight_http_raw` - Corelight NDR HTTP logs
+            - `xdr_data` - XDR endpoint data
+            - `cisco_umbrella_raw` - Cisco Umbrella DNS logs
+            - and more, you can use the get datasets tool to list all available datasets
+
+            **Time range:** Queries the last 30 minutes by default. Or use the config timeframe at starting of the query , for example config timeframe = 5M | datamodel dataset = panw_ngfw_traffic_raw for 5 minutes logs
+            **Error handling:** If your query has syntax errors, the error message from XSIAM
+            will be returned so you can adjust and retry.
+            """
+            if not query or not query.strip():
+                return "Error: XQL query is required. Please provide a valid XQL query."
+
+            return await self._run_xql(query.strip(), ctx)
+
+        async def get_cases(
+            self,
+            query: Annotated[str, Field(
+                description="The search query to find security cases/issues in XSIAM. "
+                            "Use XSIAM query syntax for filtering. "
+                            "Examples: 'severity:high AND status:new', 'name:*malware*', "
+                            "'created:>now-24h', 'assignee:analyst@troy.com'"
+            )]
+        ) -> str:
+            """
+            Search and retrieve security cases/issues from Cortex XSIAM.
+
+            **When to use this tool:**
+            - When looking for existing cases related to an ongoing investigation
+            - When checking if similar security incidents have been reported
+            - When you need to find cases by severity, status, or other criteria
+            - When correlating current alerts with previously opened cases
+            - When providing case status updates to the SOC team
+
+            **What this tool returns:**
+            - Security case details matching the query
+            - Case metadata including severity, status, and assignee
+            - Related incident information
+
+            **Troy SOC Context:**
+            - Cases in XSIAM represent security incidents being tracked
+            - May include incidents from all integrated sources (Corelight, Arista, Cisco)
+            - Use to avoid duplicate investigations and leverage prior analysis
+
+            **Example scenarios:**
+            - "Find all high severity cases from today" -> query: "severity:high AND created:>now-24h"
+            - "Are there cases about this IP?" -> query: "description:*192.168.1.100*"
+            - "Show open malware cases" -> query: "name:*malware* AND status:open"
+            """
+            if not query: return "Error: Query required"
+            command = f'!getIssues query=`{query}`'
+            return await self.execute_command(command, return_context_keys="Case")
+
+        async def ip_lookup_arista(
+            self,
+            ip: Annotated[str, Field(
+                description="The IPv4 address to look up in Arista network infrastructure. "
+                            "This should be an IP address visible on the Arista switching/wireless fabric. "
+                            "Example: '192.168.50.100'"
+            )]
+        ) -> str:
+            """
+            Look up an IP address in the Arista network fabric to get device and location information.
+
+            **When to use this tool:**
+            - When you need to identify which switch port or access point an IP is connected to
+            - When locating a device's physical position in the Troy network
+            - When investigating which network segment an IP belongs to
+            - When you need Arista CloudVision or CV-CUE data about a host
+            - When preparing network-level response actions (quarantine, isolation)
+
+            **What this tool returns:**
+            - Device identification and location within Arista infrastructure
+            - Switch/port or wireless AP connection details
+            - Network segment and VLAN information
+            - CloudVision network visibility data
+
+            **Troy SOC Context:**
+            - Arista provides the switching and wireless infrastructure at Troy
+            - CloudVision (CV-CUE) maintains visibility into all connected devices
+            - AGNI provides network identity and access control
+            - Essential for locating devices before enforcement actions
+            - Response actions (quarantine) are executed through Arista
+
+            **Important:** This tool queries Arista infrastructure. For threat intelligence
+            about an IP, use `enrich_ip` instead.
+
+            **Example scenarios:**
+            - "Which switch is 10.20.30.40 connected to?" -> Use this tool
+            - "Find the physical location of this attacking host" -> Use this tool
+            - "Get Arista details for IP before quarantine" -> Use this tool
+            """
+            command = f'!ip-lookup ip_address="{ip}" extend-context="AristaIPLookup=."'
+            return await self.execute_command(command, return_context_keys="AristaIPLookup")
+
+        async def mac_lookup_arista(
+            self,
+            mac: Annotated[str, Field(
+                description="The MAC address to look up in Arista network infrastructure. "
+                            "Standard MAC address formats accepted (colon, dash, or no separator). "
+                            "Examples: '00:1A:2B:3C:4D:5E', '00-1A-2B-3C-4D-5E', '001A2B3C4D5E'"
+            )]
+        ) -> str:
+            """
+            Look up a MAC address in the Arista network fabric to get device and location information.
+
+            **When to use this tool:**
+            - When you have a MAC address from an alert but need device/location context
+            - When tracking a device across the network (IPs may change, MACs typically don't)
+            - When investigating rogue devices or unauthorized hardware
+            - When you need to identify the vendor/manufacturer of a device
+            - When correlating endpoint data with network infrastructure
+
+            **What this tool returns:**
+            - Device identification and physical location
+            - Switch/port or wireless AP connection details
+            - Associated IP addresses if available
+            - Vendor/manufacturer information (from MAC OUI)
+            - CloudVision device visibility data
+
+            **Troy SOC Context:**
+            - MAC addresses are persistent identifiers useful for device tracking
+            - Arista CloudVision maintains MAC-to-port mappings
+            - Helpful for IoT devices (Cisco Meraki) that may have dynamic IPs
+            - Use when IP lookup doesn't provide enough location detail
+
+            **Example scenarios:**
+            - "Where is the device with MAC 00:1A:2B:3C:4D:5E?" -> Use this tool
+            - "Track this MAC across the network" -> Use this tool
+            - "Identify the device type from this MAC" -> Use this tool
+            """
+            command = f'!mac-lookup mac_address="{mac}" extend-context="AristaMACLookup=."'
+            return await self.execute_command(command, return_context_keys="AristaMACLookup")
+
+        async def umbrella_reporting_activity_get(
+            self,
+            traffic_type: Annotated[str, Field(
+                description="Type of DNS/web traffic to query. "
+                            "Options: 'dns' for DNS queries, 'proxy' for web proxy traffic, 'firewall' for firewall events. "
+                            "Example: 'dns'"
+            )],
+            limit: Annotated[int, Field(
+                description="Maximum number of results to return. Default is 50, max is typically 500.",
+                ge=1,
+                le=500
+            )] = 50,
+            time_from: Annotated[str, Field(
+                description="Start time for the query. Supports relative times like '-7days', '-24hours', '-1hour' "
+                            "or absolute timestamps. Default: '-7days'"
+            )] = "-7days",
+            time_to: Annotated[str, Field(
+                description="End time for the query. Use 'now' for current time or absolute timestamps. "
+                            "Default: 'now'"
+            )] = "now",
+            ip: Annotated[Optional[str], Field(
+                description="Optional: Filter by specific IP address. "
+                            "Example: '192.168.1.100'"
+            )] = None,
+            domains: Annotated[Optional[str], Field(
+                description="Optional: Filter by domain names. Can be comma-separated for multiple domains. "
+                            "Example: 'malware.com,phishing.net'"
+            )] = None,
+            urls: Annotated[Optional[str], Field(
+                description="Optional: Filter by specific URLs. Can be comma-separated for multiple URLs. "
+                            "Example: 'http://bad.com/malware.exe'"
+            )] = None
+        ) -> str:
+            """
+            Query Cisco Umbrella for DNS and web activity reporting data.
+
+            **When to use this tool:**
+            - When investigating DNS-based threats (C2 communication, DGA domains)
+            - When analyzing web browsing patterns for specific hosts
+            - When looking for blocked DNS queries to malicious domains
+            - When correlating Umbrella security events with other telemetry
+            - When investigating data exfiltration over DNS
+
+            **What this tool returns:**
+            - DNS query activity and resolutions
+            - Web proxy traffic details (if proxy type)
+            - Blocked/allowed decisions by Umbrella
+            - Domain categories and security verdicts
+            - Traffic patterns over the specified time range
+
+            **Troy SOC Context:**
+            - Cisco Umbrella provides DNS security for the Troy network
+            - Part of the Cisco Security Cloud telemetry feeding into Palo Alto
+            - Useful for detecting DNS tunneling and C2 over DNS
+            - Complements Corelight and NGFW data with DNS-layer visibility
+
+            **Parameter combinations:**
+            - DNS activity for an IP: traffic_type='dns', ip='192.168.1.100'
+            - Queries to specific domain: traffic_type='dns', domains='suspicious.com'
+            - Recent proxy traffic: traffic_type='proxy', time_from='-1hour'
+
+            **Example scenarios:**
+            - "Show DNS queries from 10.0.50.25 last hour" -> Use with ip parameter
+            - "Find queries to known C2 domain" -> Use with domains parameter
+            - "Get Umbrella activity for the last 24 hours" -> Use with time_from='-24hours'
+            """
+            args = [f'traffic_type="{traffic_type}"', f'limit="{limit}"', f'from="{time_from}"', f'to="{time_to}"']
+            if ip: args.append(f'ip="{ip}"')
+            if domains: args.append(f'domains="{domains}"')
+            if urls: args.append(f'urls="{urls}"')
+            command = f'!umbrella-reporting-activity-get {" ".join(args)}'
+            return await self.execute_command(command, return_context_keys="UmbrellaReporting")
+
+        def register_tools(self):
+            self._add_tool(self.enrich_ip)
+            self._add_tool(self.enrich_file)
+            self._add_tool(self.enrich_domain)
+            self._add_tool(self.enrich_url)
+            self._add_tool(self.query_corelight_logs)
+            self._add_tool(self.query_paloalto_firewall_logs)
+            self._add_tool(self.run_xql_query)
+            self._add_tool(self.get_cases)
+            self._add_tool(self.ip_lookup_arista)
+            self._add_tool(self.mac_lookup_arista)
+            self._add_tool(self.umbrella_reporting_activity_get)
+        def register_resources(self): pass
+
+    # --- Lookups ---
+
+    async def add_lookup_data(
+        ctx: Context,
+        dataset_name: Annotated[str, Field(
+            description="The name of the lookup dataset to add data to. Must be an existing dataset. "
+                        "Use 'get_datasets' tool first to see available datasets. "
+                        "Example: 'agentic_subnet_lookup', 'custom_ioc_list'"
+        )],
+        data: Annotated[List[Dict], Field(
+            description="List of records to add to the lookup dataset. Each record is a dictionary "
+                        "with key-value pairs matching the dataset schema. "
+                        "Example: [{'ip': '192.168.1.100', 'location': 'Training Room 1', 'type': 'workstation'}]"
+        )],
+        key_fields: Annotated[Optional[List[str]], Field(
+            description="Optional list of field names that uniquely identify records. "
+                        "If provided, existing records with matching keys will be updated. "
+                        "Example: ['ip'] to use IP as the unique key"
+        )] = None
+    ) -> str:
+        """
+        Add or update data in an XSIAM lookup dataset for enrichment and correlation.
+
+        **When to use this tool:**
+        - When adding new IOCs (Indicators of Compromise) to a custom threat list
+        - When updating asset information in lookup tables (e.g., subnet mappings)
+        - When populating reference data for XQL queries and correlation rules
+        - When creating custom enrichment data sources
+        - When maintaining the `agentic_subnet_lookup` dataset with network mappings
+
+        **What this tool does:**
+        - Inserts new records into the specified lookup dataset
+        - Optionally updates existing records if key_fields match
+        - Data becomes immediately available for XQL queries and enrichment
+
+        **Troy SOC Context:**
+        - The `agentic_subnet_lookup` dataset maps IPs to physical locations (Training Rooms)
+        - Custom lookup tables can track temporary IOCs during the event
+        - Essential for maintaining context about the Troy network topology
+
+        **Example scenarios:**
+        - "Add new subnet mapping for Training Room 5" -> Use this tool
+        - "Update IOC list with new malicious IPs" -> Use this tool
+        - "Add asset information for new devices" -> Use this tool
+        """
+        payload = {"request_data": {"dataset_name": dataset_name, "data": data}}
+        if key_fields: payload["request_data"]["key_fields"] = key_fields
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("xql/lookups/add_data", data=payload)
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def get_lookup_data(
+        ctx: Context,
+        dataset_name: Annotated[str, Field(
+            description="The name of the lookup dataset to query. "
+                        "Common datasets: 'agentic_subnet_lookup' (IP-to-location mappings). "
+                        "Use 'get_datasets' tool to see all available datasets."
+        )],
+        filters: Annotated[Optional[List[Dict]], Field(
+            description="Optional list of filter conditions to narrow results. "
+                        "Each filter is a dict with 'field', 'operator', and 'value'. "
+                        "Operators: 'eq' (equals), 'contains', 'in', 'neq' (not equals). "
+                        "Example: [{'field': 'location', 'operator': 'contains', 'value': 'Training'}]"
+        )] = None,
+        limit: Annotated[int, Field(
+            description="Maximum number of records to return. Default: 20, Max: 1000",
+            ge=1,
+            le=1000
+        )] = 20
+    ) -> str:
+        """
+        Retrieve data from an XSIAM lookup dataset for reference and enrichment.
+
+        **When to use this tool:**
+        - When looking up IP-to-location mappings from `agentic_subnet_lookup`
+        - When checking if an indicator exists in a custom IOC list
+        - When retrieving reference data for investigation context
+        - When identifying which Training Room or network segment an IP belongs to
+        - When you need asset or subnet information during incident response
+
+        **What this tool returns:**
+        - Records from the lookup dataset matching the query
+        - All fields defined in the dataset schema
+        - Supports filtering and pagination
+
+        **Troy SOC Context:**
+        - **CRITICAL**: Use `agentic_subnet_lookup` to identify IP physical locations
+        - This dataset maps subnets to Training Rooms and network areas
+        - Essential for contextualizing alerts ("Which Training Room is this?")
+        - Always check subnet mappings before making response recommendations
+
+        **Example scenarios:**
+        - "Which Training Room is IP 10.20.30.40 in?" -> Query agentic_subnet_lookup
+        - "List all subnets in Training Room 3" -> Use with location filter
+        - "Check if this IP is in our asset inventory" -> Query relevant lookup
+        """
+        payload = {"request_data": {"dataset_name": dataset_name, "limit": limit}}
+        if filters: payload["request_data"]["filters"] = filters
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("xql/lookups/get_data", data=payload)
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def remove_lookup_data(
+        ctx: Context,
+        dataset_name: Annotated[str, Field(
+            description="The name of the lookup dataset to remove data from. "
+                        "Example: 'custom_ioc_list', 'temporary_blocklist'"
+        )],
+        filters: Annotated[List[Dict], Field(
+            description="List of filter conditions to identify records to delete. "
+                        "Each filter is a dict with 'field', 'operator', and 'value'. "
+                        "WARNING: Be specific to avoid accidentally removing needed data. "
+                        "Example: [{'field': 'ip', 'operator': 'eq', 'value': '192.168.1.100'}]"
+        )]
+    ) -> str:
+        """
+        Remove data from an XSIAM lookup dataset.
+
+        **When to use this tool:**
+        - When removing outdated or false-positive IOCs from custom lists
+        - When cleaning up temporary reference data after an investigation
+        - When an indicator is confirmed benign and should be removed from blocklists
+        - When maintaining lookup dataset hygiene
+
+        **What this tool does:**
+        - Deletes records matching the specified filter criteria
+        - Removal is immediate and permanent
+        - Use specific filters to avoid unintended data loss
+
+        **Troy SOC Context:**
+        - Use carefully with operational datasets like `agentic_subnet_lookup`
+        - Typically used for temporary IOC lists, not core reference data
+        - Always verify filters before removing data
+
+        **Example scenarios:**
+        - "Remove false positive IP from IOC list" -> Use this tool with specific IP filter
+        - "Clean up temporary investigation data" -> Use this tool
+        """
+        payload = {"request_data": {"dataset_name": dataset_name, "filters": filters}}
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("xql/lookups/remove_data", data=payload)
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def get_datasets(ctx: Context) -> str:
+        """
+        List all available datasets in XSIAM including lookup tables and log datasets.
+
+        **When to use this tool:**
+        - When you need to discover available datasets for XQL queries
+        - When looking for the correct dataset name before querying
+        - When checking if a specific lookup table exists
+        - When exploring available data sources for correlation
+        - When you're unsure which dataset contains the data you need
+
+        **What this tool returns:**
+        - List of all datasets available in the XSIAM tenant
+        - Dataset names, types (lookup, log, etc.)
+        - Dataset metadata and schemas
+
+        **Troy SOC Context:**
+        - Key datasets include:
+          - `agentic_subnet_lookup`: IP-to-location mappings for Troy network
+          - `corelight_*`: Corelight NDR log datasets
+          - `panw_ngfw_*`: Palo Alto firewall log datasets
+        - Use this to verify dataset names before running XQL queries
+
+        **Example scenarios:**
+        - "What datasets are available?" -> Use this tool
+        - "Find the exact name of the Corelight dataset" -> Use this tool
+        - "List all lookup tables" -> Use this tool
+        """
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("xql/get_datasets", data={})
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def create_dataset(
+        ctx: Context,
+        dataset_name: Annotated[str, Field(
+            description="Name for the new dataset. Use lowercase with underscores, no spaces. "
+                        "Should be descriptive of the data purpose. "
+                        "Examples: 'troy_temp_iocs', 'investigation_assets', 'custom_blocklist'"
+        )],
+        dataset_schema: Annotated[Dict, Field(
+            description="Schema definition for the dataset fields. "
+                        "Each field should specify name and type ('string', 'integer', 'boolean', 'datetime'). "
+                        "Example: {'ip': {'type': 'string'}, 'severity': {'type': 'integer'}, 'is_malicious': {'type': 'boolean'}}"
+        )],
+        dataset_type: Annotated[str, Field(
+            description="Type of dataset to create. Default is 'lookup' for reference data. "
+                        "Options: 'lookup' for enrichment/reference tables"
+        )] = "lookup"
+    ) -> str:
+        """
+        Create a new lookup dataset in XSIAM for custom enrichment and reference data.
+
+        **When to use this tool:**
+        - When you need a new lookup table for custom IOCs specific to an investigation
+        - When creating temporary reference data for the Troy event
+        - When building custom enrichment sources for correlation
+        - When the existing datasets don't cover your use case
+
+        **What this tool does:**
+        - Creates a new empty dataset with the specified schema
+        - Dataset is immediately available for use with add_lookup_data
+        - Can be used in XQL queries for enrichment
+
+        **Troy SOC Context:**
+        - Create temporary datasets for event-specific tracking
+        - Useful for custom IOC lists discovered during investigations
+        - Remember to clean up temporary datasets after the event
+
+        **Example scenarios:**
+        - "Create a dataset to track suspicious IPs from this incident" -> Use this tool
+        - "Set up a lookup table for VIP assets" -> Use this tool
+        """
+        payload = {"request_data": {"dataset_name": dataset_name, "dataset_schema": dataset_schema, "dataset_type": dataset_type}}
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("xql/add_dataset", data=payload)
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    class LookupsModule(BaseModule):
+        """
+        Lookup dataset management tools for XSIAM.
+
+        These tools manage lookup tables used for enrichment and correlation in the
+        Troy SOC environment. The most critical dataset is `agentic_subnet_lookup`
+        which maps IP subnets to physical locations (Training Rooms, Registration, etc.).
+        """
+        def register_tools(self):
+            self._add_tool(add_lookup_data)
+            self._add_tool(get_lookup_data)
+            self._add_tool(remove_lookup_data)
+            self._add_tool(get_datasets)
+            self._add_tool(create_dataset)
+        def register_resources(self): pass
+
+    # --- Issues ---
+
+    async def get_issues_tool(
+        ctx: Context,
+        filters: Annotated[Optional[List[Dict]], Field(
+            description="List of filter conditions to narrow issue results. "
+                        "Each filter is a dict with 'field', 'operator', and 'value'. "
+                        "Common fields: 'severity' (LOW/MEDIUM/HIGH/CRITICAL), 'status' (New/Open/Resolved), "
+                        "'name', 'created_time', 'assignee'. "
+                        "Example: [{'field': 'severity', 'operator': 'eq', 'value': 'HIGH'}]"
+        )] = None,
+        search_from: Annotated[int, Field(
+            description="Pagination offset - starting index for results. "
+                        "Use 0 for first page, then increment by result count for next pages. "
+                        "Default: 0"
+        )] = 0
+    ) -> str:
+        """
+        Search and retrieve security issues from Cortex XSIAM.
+
+        **When to use this tool:**
+        - When investigating active security issues in the Troy network
+        - When checking for existing issues before creating duplicates
+        - When correlating current alerts with tracked security problems
+        - When reviewing the overall security posture and open issues
+        - When looking for issues by severity, status, or other criteria
+
+        **What this tool returns:**
+        - List of security issues matching the filter criteria
+        - Issue details: ID, name, severity, status, timestamps
+        - Pagination information for large result sets
+
+        **Troy SOC Context:**
+        - Issues represent security problems being tracked in XSIAM
+        - May originate from any integrated source (Corelight, Arista, Cisco, Palo Alto)
+        - Use to understand the current security landscape
+        - Check for existing issues before escalating new alerts
+
+        **Example filter combinations:**
+        - High severity issues: [{'field': 'severity', 'operator': 'eq', 'value': 'HIGH'}]
+        - New issues only: [{'field': 'status', 'operator': 'eq', 'value': 'New'}]
+        - Multiple filters: [{'field': 'severity', 'operator': 'in', 'value': ['HIGH', 'CRITICAL']}, {'field': 'status', 'operator': 'eq', 'value': 'Open'}]
+
+        **Example scenarios:**
+        - "Show all critical issues" -> Use with severity filter
+        - "What security issues are currently open?" -> Use with status filter
+        - "List recent issues from the last hour" -> Use with created_time filter
+        """
+        payload = {"request_data": {"search_from": search_from}}
+        if filters: payload["request_data"]["filters"] = filters
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("/issue/search/", data=payload)
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    class IssuesModule(BaseModule):
+        """
+        Security issues management tools for XSIAM.
+
+        These tools interact with the XSIAM issue tracking system to search and retrieve
+        security issues being tracked across the Troy network.
+        """
+        def register_tools(self):
+            self._add_tool(get_issues_tool)
+        def register_resources(self): pass
+
+    # --- System / Assets ---
+
+    async def get_assessment_results(
+        ctx: Context,
+        filters: Annotated[Optional[List[Dict]], Field(
+            description="List of filter conditions to narrow assessment results. "
+                        "Filters help target specific assets, vulnerability types, or severity levels. "
+                        "Example: [{'field': 'severity', 'operator': 'eq', 'value': 'critical'}]"
+        )] = None
+    ) -> str:
+        """
+        Retrieve vulnerability assessment results from Cortex XSIAM.
+
+        **When to use this tool:**
+        - When investigating vulnerabilities on specific assets
+        - When assessing the security posture of hosts involved in an incident
+        - When checking if a compromised host has known vulnerabilities
+        - When correlating attacks with exploitable vulnerabilities
+        - When reviewing compliance and security assessment status
+
+        **What this tool returns:**
+        - Vulnerability assessment findings
+        - Affected assets and severity ratings
+        - Compliance status and remediation recommendations
+
+        **Troy SOC Context:**
+        - Helps identify if attacked hosts have exploitable vulnerabilities
+        - Useful for understanding why a specific host was targeted
+        - Part of the comprehensive security visibility from XSIAM
+
+        **Example scenarios:**
+        - "What vulnerabilities exist on this compromised host?" -> Use this tool
+        - "Show critical vulnerabilities in the network" -> Use with severity filter
+        """
+        payload = {"request_data": {}}
+        if filters: payload["request_data"]["filters"] = filters
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("/compliance/get_assessment_results/", data=payload)
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def get_asset_by_id(
+        ctx: Context,
+        asset_id: Annotated[str, Field(
+            description="The unique identifier of the asset in XSIAM. "
+                        "Usually obtained from alert data, asset search results, or other tools. "
+                        "Example: 'asset_12345', 'endpoint_abc123'"
+        )]
+    ) -> str:
+        """
+        Retrieve full details for a specific monitored asset by its ID.
+
+        **When to use this tool:**
+        - When you have an asset ID from an alert and need complete details
+        - When investigating a specific endpoint or device
+        - When you need comprehensive asset information (OS, users, software, etc.)
+        - When correlating asset data with security events
+
+        **What this tool returns:**
+        - Complete asset profile including:
+          - Hardware and software inventory
+          - Operating system details
+          - Network configuration (IPs, MACs)
+          - User associations
+          - Security agent status
+          - Last seen timestamps
+
+        **Troy SOC Context:**
+        - Assets include endpoints, servers, and network devices
+        - Provides context for hosts involved in security incidents
+        - Useful for understanding the target of an attack
+
+        **Example scenarios:**
+        - "Get full details for asset ID from this alert" -> Use this tool
+        - "What software is installed on this endpoint?" -> Use this tool
+        """
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request(f"/assets/{asset_id}/", method="GET")
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def get_assets(
+        ctx: Context,
+        filters: Annotated[Optional[Dict], Field(
+            description="Filter group to narrow asset search. Supports nested filter logic. "
+                        "Fields include: 'ip_address', 'hostname', 'os_type', 'domain', 'agent_status'. "
+                        "Example: {'AND': [{'field': 'os_type', 'operator': 'contains', 'value': 'Windows'}]}"
+        )] = None,
+        sort: Annotated[Optional[List[Dict]], Field(
+            description="Sort criteria for results. Each item specifies field and direction. "
+                        "Example: [{'field': 'last_seen', 'order': 'desc'}]"
+        )] = None,
+        search_from: Annotated[int, Field(
+            description="Pagination offset - starting index for results. Default: 0"
+        )] = 0,
+        search_to: Annotated[int, Field(
+            description="Pagination limit - ending index for results. Default: 100, Max: 1000"
+        )] = 100
+    ) -> str:
+        """
+        Search and retrieve a list of monitored assets from Cortex XSIAM.
+
+        **When to use this tool:**
+        - When searching for assets by IP, hostname, or other criteria
+        - When you need to find assets in a specific network segment
+        - When investigating which endpoints are in a particular state
+        - When building asset context for security investigations
+        - When auditing deployed security agents
+
+        **What this tool returns:**
+        - List of assets matching the search criteria
+        - Asset summary information (hostname, IP, OS, status)
+        - Pagination information for large inventories
+
+        **Troy SOC Context:**
+        - Provides visibility into all monitored endpoints and devices
+        - Use to find assets by IP when investigating alerts
+        - Helps identify scope of potential incidents
+
+        **Example filter combinations:**
+        - By IP: {'AND': [{'field': 'ip_address', 'operator': 'eq', 'value': '192.168.1.100'}]}
+        - By OS: {'AND': [{'field': 'os_type', 'operator': 'contains', 'value': 'Linux'}]}
+        - Windows servers: {'AND': [{'field': 'os_type', 'operator': 'contains', 'value': 'Windows'}, {'field': 'hostname', 'operator': 'contains', 'value': 'srv'}]}
+
+        **Example scenarios:**
+        - "Find the asset with IP 10.20.30.40" -> Use with IP filter
+        - "List all Windows endpoints" -> Use with os_type filter
+        - "Show assets not seen in 24 hours" -> Use with last_seen sort
+        """
+        request_data = {"search_from": search_from, "search_to": search_to}
+        if filters: request_data["filters"] = filters
+        if sort: request_data["sort"] = sort
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("/assets/", method="POST", data={"request_data": request_data})
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    async def get_tenant_info(ctx: Context) -> str:
+        """
+        Retrieve current XSIAM tenant license and configuration information.
+
+        **When to use this tool:**
+        - When you need to verify the XSIAM tenant configuration
+        - When checking license status and enabled features
+        - When troubleshooting integration or capability issues
+        - When reporting on the security platform configuration
+
+        **What this tool returns:**
+        - Tenant identification and license details
+        - Enabled modules and features
+        - Configuration settings
+
+        **Troy SOC Context:**
+        - Useful for verifying the XSIAM deployment is properly configured
+        - Helps understand available capabilities
+        - Typically used for operational verification, not investigations
+
+        **Example scenarios:**
+        - "Verify XSIAM tenant configuration" -> Use this tool
+        - "Check what modules are enabled" -> Use this tool
+        """
+        try:
+            fetcher = await get_fetcher(ctx)
+            response_data = await fetcher.send_request("/system/get_tenant_info", method="POST", data={"request_data": {}})
+            return create_response(response_data)
+        except Exception as e: return create_response({"error": str(e)}, is_error=True)
+
+    class SystemModule(BaseModule):
+        """
+        System and asset management tools for XSIAM.
+
+        These tools provide access to asset inventory, vulnerability assessments,
+        and tenant configuration information in the Troy SOC environment.
+        """
+        def register_tools(self):
+            self._add_tool(get_assessment_results)
+            self._add_tool(get_asset_by_id)
+            self._add_tool(get_assets)
+            self._add_tool(get_tenant_info)
+        def register_resources(self): pass
+
+    # --- Reference ---
+
+    class ReferenceModule(BaseModule):
+        """
+        Reference documentation resources for XSIAM and XQL.
+        """
+        def register_tools(self):
+            self._add_tool(self.get_dataset_fields_tool)
+            self._add_tool(self.get_xql_examples_tool)
+            self._add_tool(self.get_xql_doc_tool)
+
+        def register_resources(self):
+            self._add_resource(
+                self.get_dataset_fields,
+                "osiris://reference/dataset_fields",
+                "dataset_xdm_field_mappings",
+                "Reference mapping of XSIAM dataset names to their available XDM (Cross-Data Model) fields. "
+                "Use this resource when you need to know which fields are available for a specific dataset "
+                "(e.g., panw_ngfw_traffic_raw, corelight_http_raw, xdr_data) to construct valid XQL queries. "
+                "Contains field lists for datasets including: Cisco Umbrella, Corelight HTTP/Zeek, JAMF Pro, "
+                "Palo Alto NGFW (traffic, threat, URL, file, GlobalProtect, HIPmatch), and XDR endpoint data.",
+                mime_type="text/markdown"
+            )
+            self._add_resource(
+                self.get_xql_examples,
+                "osiris://reference/xql_examples",
+                "xql_query_examples",
+                "Collection of real-world XQL query examples extracted from correlation rules and dashboards. "
+                "Use this resource when you need inspiration or patterns for writing XQL queries. "
+                "Includes examples for: threat detection, traffic analysis, user activity monitoring, "
+                "security event correlation, and dashboard visualizations. Each example shows practical "
+                "query patterns with filters, aggregations, and field selections.",
+                mime_type="text/markdown"
+            )
+            self._add_resource(
+                self.get_xql_doc,
+                "osiris://reference/xql_documentation",
+                "xql_language_documentation",
+                "Comprehensive XQL (eXtended Query Language) reference documentation for Cortex XSIAM. "
+                "Use this resource when you need to understand XQL syntax, operators, functions, or query structure. "
+                "Covers: datamodel queries, filtering with pipes (|), aggregation functions (count, sum, avg), "
+                "time-based queries, join operations, sub-queries, field transformations, and best practices. "
+                "Essential for constructing syntactically correct and efficient XQL queries.",
+                mime_type="text/markdown"
+            )
+
+        def _read_file(self, filename: str) -> str:
+            try:
+                with open(filename, "r") as f:
+                    return f.read()
+            except Exception as e:
+                logging.error(f"Error reading {filename}: {e}")
+                return f"Error reading {filename}: {e}"
+
+        def get_dataset_fields(self) -> str:
+            return self._read_file("/mcp-resources/dataset_fields.md")
+
+        def get_xql_examples(self) -> str:
+            return self._read_file("/mcp-resources/xqlexamples.md")
+
+        def get_xql_doc(self) -> str:
+            return self._read_file("/mcp-resources/xql_doc.md")
+
+        # Tool versions of the resources (for LLMs that don't support resources)
+        def get_dataset_fields_tool(self) -> str:
+            """
+            Get reference mapping of XSIAM dataset names to their available XDM fields.
+
+            **When to use this tool:**
+            - When constructing XQL queries and need to know which fields are available for a specific dataset
+            - When you need to identify valid XDM field names for filtering or selecting data
+            - Before writing queries against datasets like panw_ngfw_traffic_raw, corelight_http_raw, xdr_data
+
+            **What this tool returns:**
+            A comprehensive reference guide containing:
+            - Dataset names (e.g., panw_ngfw_traffic_raw, corelight_http_raw)
+            - Available XDM (Cross-Data Model) fields for each dataset
+            - Field descriptions and data types
+            - Coverage for: Cisco Umbrella, Corelight HTTP/Zeek, JAMF Pro, Palo Alto NGFW (traffic, threat, URL, file, GlobalProtect, HIPmatch), XDR endpoint data
+
+            **Example use case:**
+            You want to query firewall traffic but need to know the correct field names:
+            1. Call this tool to get dataset_fields
+            2. Look for "panw_ngfw_traffic_raw" section
+            3. Find available fields like xdm.source.ipv4, xdm.target.ipv4, xdm.network.rule, etc.
+            4. Use those fields in your XQL query
+            """
+            return self._read_file("/mcp-resources/dataset_fields.md")
+
+        def get_xql_examples_tool(self) -> str:
+            """
+            Get collection of real-world XQL query examples from correlation rules and dashboards.
+
+            **When to use this tool:**
+            - When you need inspiration or patterns for writing XQL queries
+            - When you want to see how to structure queries for specific use cases
+            - When looking for examples of threat detection, traffic analysis, or user activity queries
+            - Before writing complex queries with aggregations, joins, or filtering
+
+            **What this tool returns:**
+            Real-world XQL query examples including:
+            - Threat detection patterns (malware, C2 beaconing, suspicious DNS)
+            - Traffic analysis queries (connection tracking, bandwidth monitoring)
+            - User activity monitoring (authentication, access patterns)
+            - Security event correlation (multi-stage attack detection)
+            - Dashboard visualization queries
+            - Examples show practical patterns with filters, aggregations, field selections, and time-based analysis
+
+            **Example use case:**
+            You need to detect beaconing behavior:
+            1. Call this tool to get xql_examples
+            2. Search for "beacon" or "periodic connection" patterns
+            3. Adapt the example query structure to your specific dataset and criteria
+            4. Execute the customized query
+            """
+            return self._read_file("/mcp-resources/xqlexamples.md")
+
+        def get_xql_doc_tool(self) -> str:
+            """
+            Get comprehensive XQL (eXtended Query Language) reference documentation for Cortex XSIAM.
+
+            **When to use this tool:**
+            - When you need to understand XQL syntax, operators, or functions
+            - When constructing queries and unsure about proper syntax
+            - When you need to use advanced features like joins, sub-queries, or aggregations
+            - Before writing any XQL query to ensure syntactic correctness
+
+            **What this tool returns:**
+            Complete XQL language reference covering:
+            - Query structure and syntax fundamentals
+            - Datamodel queries and dataset selection
+            - Filtering with pipes (|) and logical operators
+            - Aggregation functions (count, sum, avg, min, max)
+            - Time-based queries and time range specifications
+            - Join operations across datasets
+            - Sub-queries and nested query patterns
+            - Field transformations with alter statements
+            - Sorting, limiting, and result formatting
+            - Best practices for query performance
+            - Common operators: =, !=, <, >, contains, in, ~=
+
+            **Example use case:**
+            You need to write a query with aggregation but unsure of syntax:
+            1. Call this tool to get xql_documentation
+            2. Search for "aggregation" or "comp count()"
+            3. Review syntax examples and operator usage
+            4. Construct your query following the documented patterns
+            """
+            return self._read_file("/mcp-resources/xql_doc.md")
+
+    # --- Slack ---
+
+    class SlackTools(BaseModule):
+        """
+        Slack integration tools for the Troy NOC.
+
+        These tools enable interaction with Slack for downloading files shared
+        in SOC channels during incident response and collaboration.
+        """
+
+        def __init__(self, mcp: FastMCP):
+            super().__init__(mcp)
+            self.bot_token = os.environ.get("SLACK_BOT_TOKEN")
+
+        def slack_download_file(
+            self,
+            file_url: Annotated[str, Field(
+                description="The Slack file URL to download. This is the private download URL "
+                            "from Slack that requires authentication. "
+                            "Usually obtained from Slack message attachments or file sharing. "
+                            "Example: 'https://files.slack.com/files-pri/T00000000-F00000000/download/filename.txt'"
+            )]
+        ) -> str:
+            """
+            Download a file from Slack using bot authentication.
+
+            **When to use this tool:**
+            - When a team member shares a file in Slack that needs analysis
+            - When downloading logs, screenshots, or evidence shared in SOC channels
+            - When retrieving attachments from incident discussion threads
+            - When you need to access files shared during collaborative investigation
+
+            **What this tool returns:**
+            - The text content of the downloaded file
+            - Error message if download fails
+
+            **Troy SOC Context:**
+            - SOC team members may share files (logs, configs, screenshots) in Slack
+            - This tool enables the agent to access shared investigation materials
+            - Useful for analyzing evidence shared during active incidents
+
+            **Limitations:**
+            - Requires valid SLACK_BOT_TOKEN configuration
+            - Returns text content only (binary files may not render properly)
+            - Bot must have access to the channel where file was shared
+
+            **Example scenarios:**
+            - "Download the log file shared in the channel" -> Use this tool
+            - "Get the config file from the Slack attachment" -> Use this tool
+            """
+            if not self.bot_token: return "Error: SLACK_BOT_TOKEN not found."
+            headers = {"Authorization": f"Bearer {self.bot_token}"}
+            try:
+                import requests
+                response = requests.get(file_url, headers=headers)
+                if response.status_code == 200: return response.text
+                return f"Error: {response.status_code}"
+            except Exception as e: return f"Error: {e}"
+
+        def register_tools(self):
+            self._add_tool(self.slack_download_file, "Download a file from Slack using bot authentication for analyzing shared evidence and logs in SOC channels")
+        def register_resources(self): pass
+
+    # --- Prompts ---
+
+    class PromptsModule(BaseModule):
+        """
+        Security investigation prompts for the Troy SOC PreCog agent.
+        These prompts guide the agent through common security scenarios.
+        """
+        def register_tools(self): pass
+        def register_resources(self): pass
+
+        def register_prompts(self):
+            self._add_prompt(
+                self.alert_triage_prompt,
+                "alert_triage",
+                "Triage a security alert by identifying device location (Training Room), enriching threat intel, "
+                "and pulling relevant logs. Use when a Corelight NDR or firewall alert fires and you need full "
+                "context before deciding on response action. Guides you to use subnet lookup, IP enrichment, and log queries."
+            )
+            self._add_prompt(
+                self.cross_platform_correlation_prompt,
+                "cross_platform_correlation",
+                "Correlate threat data across multiple security platforms (NGFW, Umbrella DNS, XSIAM cases). "
+                "Use when an external IP is attacking infrastructure and you need to gather evidence from "
+                "Palo Alto threat logs, Cisco Umbrella DNS data, and existing security cases for escalation."
+            )
+            self._add_prompt(
+                self.xql_hunt_prompt,
+                "xql_threat_hunt",
+                "Build and execute a custom XQL threat hunting query. Use when you need to search for specific "
+                "attack patterns (e.g., lateral movement, beaconing) across datasets. Guides you to reference "
+                "XQL documentation, dataset field mappings, and query examples before constructing and running the query."
+            )
+            self._add_prompt(
+                self.device_tracking_prompt,
+                "device_tracking",
+                "Track and locate a device by MAC address using Arista network infrastructure. Use when physical "
+                "security reports a suspicious device or you need to find which switch/port and network segment "
+                "a device is connected to. Correlates Arista data with subnet lookups."
+            )
+            self._add_prompt(
+                self.shift_handoff_prompt,
+                "shift_handoff",
+                "Generate a situational awareness briefing for shift handoff. Use at the start of a shift to get "
+                "an overview of open high/critical issues, assets to watch, available datasets, and pre-built "
+                "XQL query patterns. Provides a structured, actionable briefing."
+            )
+
+        def alert_triage_prompt(self) -> str:
+            return """You are triaging a security alert. Follow these steps:
+
+    1. **Identify Location**: Use `get_lookup_data` to query `agentic_subnet_lookup` and determine which Training Room or network area the source IP belongs to.
+
+    2. **Enrich Threat Intel**: Use `enrich_ip` on any external/destination IPs to check threat reputation and intelligence.
+
+    3. **Pull Logs**: Use `query_corelight_logs` or `query_paloalto_firewall_logs` to retrieve activity for the involved IPs.
+
+    4. **Analyze & Recommend**:
+       - If the IP is in a Training Room, this may be expected lab activity - recommend monitoring.
+       - If the destination is known malicious and source is NOT in a training area, recommend escalation.
+       - NEVER recommend blocking internal Training Room IPs.
+
+    Provide your findings in a clear, structured format with the location context, threat intel summary, and recommended action."""
+
+        def cross_platform_correlation_prompt(self) -> str:
+            return """You are correlating an attack across multiple security platforms. Follow these steps:
+
+    1. **Enrich Attacker IP**: Use `enrich_ip` to get threat intelligence on the external attacking IP.
+
+    2. **Check DNS Activity**: Use `umbrella_reporting_activity_get` with traffic_type='dns' to see related DNS queries from Cisco Umbrella.
+
+    3. **Pull Firewall Threats**: Use `query_paloalto_firewall_logs` to retrieve NGFW threat detection events for the IP.
+
+    4. **Check Existing Cases**: Use `get_cases` or `get_issues_tool` to find if this attacker has been seen before.
+
+    5. **Correlate & Report**: Synthesize findings across all platforms, noting:
+       - Whether the IP is a known threat actor
+       - What DNS domains were queried
+       - What the firewall blocked vs allowed
+       - Recommended next steps (escalate, block, monitor)
+
+    Cite the data flow: Arista/Cisco → Corelight → Palo Alto XSIAM when relevant."""
+
+        def xql_hunt_prompt(self) -> str:
+            return """You are building a custom XQL threat hunting query. Follow these steps:
+
+    1. **Understand Requirements**: Clarify what pattern you're hunting for (e.g., lateral movement, beaconing, data exfiltration).
+
+    2. **Check XQL Documentation**: Call `get_xql_doc_tool` to understand query syntax, operators, and functions.
+
+    3. **Identify Dataset & Fields**: Call `get_dataset_fields_tool` to find which dataset contains the relevant data and what XDM fields are available.
+
+    4. **Review Examples**: Call `get_xql_examples_tool` to see similar query patterns that you can adapt.
+
+    5. **Construct Query**: Build your XQL query using:
+       - `datamodel dataset = <dataset_name>`
+       - Appropriate filters with `| filter`
+       - Field selection with `| fields`
+       - Aggregations if needed (`| comp count() by field`)
+
+    6. **Execute**: Use `execute_command` to run the query or describe the query for the analyst to run.
+
+    Always validate your query syntax against the documentation before execution."""
+
+        def device_tracking_prompt(self) -> str:
+            return """You are tracking a device by MAC address. Follow these steps:
+
+    1. **MAC Lookup**: Use `mac_lookup_arista` to find which Arista switch/port the device is connected to and get associated IP.
+
+    2. **IP Details**: If an IP is returned, use `ip_lookup_arista` to get additional network location details.
+
+    3. **Subnet Mapping**: Use `get_lookup_data` to query `agentic_subnet_lookup` with the IP to identify the physical location (Training Room, Registration, etc.).
+
+    4. **Asset Check**: Optionally use `get_assets` to see if the device is registered in XSIAM's asset inventory.
+
+    5. **Assess & Report**:
+       - If the device is in an expected location (Training Room), it's likely a student device.
+       - If in an unexpected area (NOC, Registration), investigate further.
+       - Provide switch/port, IP, subnet, and physical location in your report.
+
+    Always use Arista tools first for network fabric visibility, then correlate with XSIAM data."""
+
+        def shift_handoff_prompt(self) -> str:
+            return """You are generating a shift handoff briefing. Gather the following:
+
+    1. **Open Issues**: Use `get_issues_tool` with filters for severity HIGH/CRITICAL and status Open/New to list priority security issues.
+
+    2. **Assets of Interest**: Use `get_assets` to identify any recently flagged or high-priority assets.
+
+    3. **Available Datasets**: Use `get_datasets` to list what data sources are available for threat hunting.
+
+    4. **Query Patterns**: Call `get_xql_examples_tool` to get key XQL patterns that the incoming analyst might need.
+
+    5. **Compile Briefing**: Present a structured handoff including:
+       - **Priority Issues**: Count and summary of HIGH/CRITICAL issues
+       - **Watch List**: Any assets or IPs to monitor
+       - **Data Sources**: Available datasets for hunting
+       - **Quick Commands**: Useful XQL patterns for common scenarios
+       - **Outstanding Actions**: Any pending investigations or follow-ups
+
+    Keep the briefing concise, actionable, and team-member friendly. Avoid robotic language - this is a colleague handoff."""
+
+    # ==========================================
+    # SERVER SETUP
+    # ==========================================
+
+    def _parse_scopes(raw: str | None) -> list[str]:
+        if not raw: return []
+        return [s.strip() for s in raw.replace(";", ",").split(",") if s.strip()]
+
+    def _build_auth_provider() -> AuthProvider | None:
+        token = os.getenv("MCP_AUTH_TOKEN")
+        if not token: return None
+        return EnvTokenAuthProvider(token=token, required_scopes=_parse_scopes(os.getenv("MCP_AUTH_SCOPES")))
+
+    def create_mcp_lifespan(api_key: Optional[str] = None, api_key_id: Optional[str] = None):
+        @asynccontextmanager
+        async def mcp_lifespan(mcp_server: FastMCP):
+            if not api_key or not api_key_id:
+                 raise ValueError("Missing auth")
+            yield MCPContext(auth_headers={"Authorization": api_key, "X-XDR-AUTH-ID": api_key_id})
+        return mcp_lifespan
+
+    async def initialize_mcp_server(api_key: str, api_key_id: str, papi_url: str) -> FastMCP:
+        lifespan = create_mcp_lifespan(api_key, api_key_id)
+        auth = _build_auth_provider()
+        mcp = FastMCP("Cortex MCP Server", lifespan=lifespan, auth=auth)
+
+        modules = [
+            IntegrationTools(mcp),
+            LookupsModule(mcp),
+            IssuesModule(mcp),
+            SlackTools(mcp),
+            SystemModule(mcp),
+            ReferenceModule(mcp),
+            PromptsModule(mcp)
+        ]
+        for module in modules:
+            module.register_tools()
+            module.register_resources()
+
+        # Register prompts for modules that have them
+        for module in modules:
+            if hasattr(module, 'register_prompts'):
+                module.register_prompts()
+
+        return mcp
+
+    async def async_main(transport: str):
+
+        config = get_config()
+        setup_logging(config)
+
+        api_key = config.papi_auth_header_key
+        api_key_id = config.papi_auth_id_key
+        papi_url = config.papi_url_env_key
+
+        if not api_key or not api_key_id:
+             logging.error("Missing XSIAM API Credentials.")
+             try:
+                 demisto.updateModuleHealth("Error: Missing XSIAM API credentials")
+             except Exception:
+                 pass
+             # Return cleanly so the outer loop can retry without killing the container.
+             return
+
+        mcp = await initialize_mcp_server(api_key, api_key_id, papi_url)
+
+        if transport == "stdio":
+            try:
+                demisto.updateModuleHealth("OK: Orion MCP running (stdio)")
+            except Exception:
+                pass
+            await mcp.run_async(transport=transport)
+        else:
+            app = mcp.http_app(path=config.mcp_path, transport=transport)
+            app.add_middleware(LoggingMiddleware)
+
+            ssl_keyfile = config.ssl_key_file
+            ssl_certfile = config.ssl_cert_file
+
+            # Handle SSL via PEM content if files are not provided
+            def normalize_pem(pem_str: str) -> str:
+                # Replace literal \n with actual newline character
+                content = pem_str.replace("\\n", "\n").replace("\\r", "")
+
+                # Ensure proper separation of headers/footers
+                # Add separation for Certificate
+                content = content.replace("-----BEGIN CERTIFICATE-----", "-----BEGIN CERTIFICATE-----\n")
+                content = content.replace("-----END CERTIFICATE-----", "\n-----END CERTIFICATE-----")
+
+                # Add separation for Private Key (generic & RSA)
+                content = content.replace("-----BEGIN PRIVATE KEY-----", "-----BEGIN PRIVATE KEY-----\n")
+                content = content.replace("-----END PRIVATE KEY-----", "\n-----END PRIVATE KEY-----")
+                content = content.replace("-----BEGIN RSA PRIVATE KEY-----", "-----BEGIN RSA PRIVATE KEY-----\n")
+                content = content.replace("-----END RSA PRIVATE KEY-----", "\n-----END RSA PRIVATE KEY-----")
+
+                # Clean up potential double newlines introduced above
+                while "\n\n" in content:
+                    content = content.replace("\n\n", "\n")
+
+                return content.strip() + "\n"
+
+            temp_files = []
+            if not ssl_keyfile and config.ssl_key_pem:
+                key_temp = tempfile.NamedTemporaryFile(delete=False, mode="w")
+                key_temp.write(normalize_pem(config.ssl_key_pem))
+                key_temp.close()
+                ssl_keyfile = key_temp.name
+                temp_files.append(key_temp.name)
+
+            if not ssl_certfile and config.ssl_cert_pem:
+                cert_temp = tempfile.NamedTemporaryFile(delete=False, mode="w")
+                cert_temp.write(normalize_pem(config.ssl_cert_pem))
+                cert_temp.close()
+                ssl_certfile = cert_temp.name
+                temp_files.append(cert_temp.name)
+
+            # Register cleanup on exit
+            def cleanup_temp_files():
+                for f in temp_files:
+                    if os.path.exists(f):
+                        os.unlink(f)
+
+            atexit.register(cleanup_temp_files)
+
+            if ssl_keyfile and ssl_certfile:
+                logging.info(f"Configuring SSL with {ssl_certfile} and {ssl_keyfile}")
+            else:
+                logging.warning("Starting HTTP server (SSL params missing)")
+
+            config_uvicorn = uvicorn.Config(app, host=config.mcp_host, port=config.mcp_port,
+                                            ssl_certfile=ssl_certfile, ssl_keyfile=ssl_keyfile,
+                                            log_level="critical", loop="asyncio", timeout_keep_alive=300,
+                                            access_log=False, log_config=None)
+            server = uvicorn.Server(config_uvicorn)
+            try:
+                await server.serve()
+            finally:
+                cleanup_temp_files()
+
+    def main():
+        params = demisto.params()
+        os.environ['CORTEX_MCP_PAPI_URL'] = params.get('xsiam_api_url', '')
+        os.environ['CORTEX_MCP_PAPI_AUTH_ID'] = params.get('xsiam_key_id', '')
+        os.environ['CORTEX_MCP_PAPI_AUTH_HEADER'] = params.get('xsiam_standard_key', '')
+        os.environ['MCP_PORT'] = params.get('mcp_port', '9010')
+        os.environ['MCP_TRANSPORT'] = params.get('mcp_transport', 'streamable-http')
+        os.environ['MCP_HOST'] = params.get('mcp_host', '0.0.0.0')
+        os.environ['MCP_PATH'] = params.get('mcp_path', '/api/v1/stream/mcp')
+        os.environ['PLAYGROUND_ID'] = params.get('playground_id', '')
+
+        if params.get('mcp_key'): os.environ['MCP_AUTH_TOKEN'] = params.get('mcp_key')
+        if params.get('slack_bot_token'): os.environ['SLACK_BOT_TOKEN'] = params.get('slack_bot_token')
+        if params.get('ssl_pem'): os.environ['SSL_CERT_PEM'] = params.get('ssl_pem')
+        if params.get('ssl_key'): os.environ['SSL_KEY_PEM'] = params.get('ssl_key')
+
+        reload_config()
+
+        command = demisto.command()
+        demisto.info(f"Started Orion with command: {command}")
+
+        try:
+            if command == 'test-module':
+                # Print params/env mappings to help verify configuration wiring
+                print("=== osiris test-module parameters ===")
+                print(json.dumps(params, indent=2))
+                print("=== derived env/config ===")
+                print(json.dumps({
+                    "CORTEX_MCP_PAPI_URL": os.environ.get('CORTEX_MCP_PAPI_URL'),
+                    "CORTEX_MCP_PAPI_AUTH_ID": os.environ.get('CORTEX_MCP_PAPI_AUTH_ID'),
+                    "CORTEX_MCP_PAPI_AUTH_HEADER": os.environ.get('CORTEX_MCP_PAPI_AUTH_HEADER'),
+                    "PLAYGROUND_ID": os.environ.get('PLAYGROUND_ID'),
+                    "MCP_TRANSPORT": os.environ.get('MCP_TRANSPORT'),
+                    "MCP_PORT": os.environ.get('MCP_PORT'),
+                    "MCP_HOST": os.environ.get('MCP_HOST'),
+                    "MCP_PATH": os.environ.get('MCP_PATH'),
+                }, indent=2))
+                demisto.results('ok')
+
+            elif command == 'long-running-execution':
+                transport = params.get('mcp_transport', 'streamable-http')
+
+                # Keep the long-running container alive even if the server crashes or is cancelled.
+                while True:
+                    try:
+                        asyncio.run(async_main(transport))
+                    except BaseException as e:  # Catch CancelledError/SystemExit too
+                        _log_exit_event("Orion long-running loop crashed", e)
+                        demisto.updateModuleHealth(f"Error: {e}")
+                        time.sleep(5)
+                        continue
+                    # If the server exits cleanly, delay and restart to keep the container alive.
+                    demisto.info("MCP server exited; restarting long-running loop")
+                    _log_exit_event("Orion long-running loop exited cleanly")
+                    time.sleep(5)
+            else:
+                return_error(f"Command {command} not supported.")
+        except Exception as e:
+            return_error(f"Failed: {e}")
+
+    if __name__ in ('__main__', '__builtin__', 'builtins'):
+        main()
+  type: python
+  dockerimage: aymanam/osiris:latest
+  subtype: python3
+  runonce: false
+  longRunning: true
+  longRunningPort: true
+sourcemoduleid: Osiris
