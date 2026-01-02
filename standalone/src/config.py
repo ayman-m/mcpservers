@@ -93,25 +93,22 @@ def reload_config() -> Settings:
 
 def get_papi_url(papi_url_value: str) -> str:
     """
-    Build the full PAPI URL.
+    Build the PAPI base URL (no /public_api/v1 suffix).
 
     Args:
         papi_url_value: Base URL from configuration
 
     Returns:
-        Full PAPI URL with /public_api/v1 path
+        Base URL without public_api path (Fetcher will append /public_api/v1)
     """
     if not papi_url_value:
         raise ValueError("CORTEX_MCP_PAPI_URL is required")
 
     base_url = papi_url_value.rstrip("/")
-
-    # If URL already includes public_api path, use as-is
     if "/public_api" in base_url:
-        return base_url
+        base_url = base_url.split("/public_api")[0].rstrip("/")
 
-    # Otherwise append the standard public API path
-    return f"{base_url}/public_api/v1"
+    return base_url
 
 
 def get_papi_auth_headers(api_key: str, api_key_id: str) -> dict[str, str]:
