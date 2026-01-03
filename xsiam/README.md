@@ -24,21 +24,11 @@ Map these to the integration form in XSIAM (from `integration.yml`):
 - `xsiam_key_id` — Standard API key ID
 - `mcp_transport` — `streamable-http` (recommended) or `stdio`
 - `mcp_host` / `mcp_port` / `mcp_path` — Defaults: `0.0.0.0` / `9010` / `/api/v1/stream/mcp`
-- `playground_id` — Optional; required for War Room command execution
+- `playground_id` — Required for War Room command execution
 - `mcp_key` — Optional bearer token clients must present
 - Optional: `ssl_pem`, `ssl_key` (PEM as one line with `\n`), `slack_bot_token`
 
 ## Deployment (inside XSIAM)
-1) Upload the integration package (code + `integration.yml`) to XSIAM.
+1) Upload the integration package (`integration.yml`) to XSIAM.
 2) Assign it to an XSIAM engine with network egress to the XSIAM Public API.
-3) Fill the parameters above; save and test. The integration will expose MCP over your chosen transport.
-
-## Notes
-- PAPI URL must not include `/public_api/v1`; the client appends it.
-- The toolset matches the standalone server; only runtime environment differs.
-- Rotate credentials if they were ever committed or exposed.
-
-## Paths
-- Entry point: `xsiam/integration.py`
-- Metadata: `xsiam/integration.yml`
-- Docs/resources (XQL): `xsiam/xql_doc.md`, `xsiam/xqlexamples.md`, `xsiam/dataset_fields.md`
+3) Fill the parameters above and save. The integration will expose MCP over your chosen transport.
