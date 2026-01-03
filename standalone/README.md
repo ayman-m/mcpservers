@@ -11,6 +11,8 @@ A consolidated Model Context Protocol (MCP) server that bundles the XSIAM integr
 - System: `get_cases`, `get_issues_tool`, `get_assets`, `get_asset_by_id`, `get_assessment_results`, `get_tenant_info`
 - Reference: `get_xql_doc_tool`, `get_xql_examples_tool`, `get_dataset_fields_tool`
 
+Note: The toolset is identical to the XSIAM integration variant—only the deployment model differs.
+
 ## Run Options
 
 ### Local (no Docker)
@@ -71,6 +73,8 @@ The `.env.example` file documents all supported values for both the standalone M
 | `GEMINI_API_KEY` / `GEMINI_MODEL` | Agent | Gemini model credentials (e.g. `gemini-3-pro-preview`). |
 | `GOOGLE_APPLICATION_CREDENTIALS` | Agent | Contents of a Google service account JSON that has Vertex AI permissions; paste the JSON as one line or base64-decode into this variable. |
 | `UI_USER` / `UI_PASSWORD` | Agent | Optional Streamlit basic auth. |
+
+PAPI URL reminder: provide the tenant base URL **without** `/public_api/v1` (the client adds it). Examples: `https://api-your-tenant.xdr.us.paloaltonetworks.com`, `https://api-your-tenant.xdr.eu.paloaltonetworks.com`.
 
 ### Getting cloud credentials
 - **Cortex XSIAM**: In the Cortex XDR console, create a Standard API key. Copy the API key ID into `CORTEX_MCP_PAPI_AUTH_ID` and the API key value into `CORTEX_MCP_PAPI_AUTH_HEADER`. Use your tenant’s API base URL for `CORTEX_MCP_PAPI_URL`.

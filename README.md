@@ -17,6 +17,16 @@ This repository contains MCP server implementations that bridge AI agents with C
 - **Standalone Server**: Consolidated MCP server combining all XSIAM tools in one deployable package
 - **XSIAM Integration**: MCP server that runs as an XSIAM integration (native deployment inside XSIAM)
 
+## Capabilities (common to both variants)
+- Threat intel enrichment: IP, domain, URL, file/hash
+- XQL execution and log queries (Corelight NDR, Palo Alto NGFW, Umbrella DNS)
+- Lookup datasets: list/create/add/query/remove
+- Asset and vulnerability lookups; tenant info
+- Security cases/issues search
+- Network fabric lookups (Arista IP/MAC)
+- Reference docs/resources: XQL language, dataset fields, query examples
+- Slack file download utility
+
 ## Architecture
 
 ```
@@ -88,32 +98,68 @@ An MCP server that runs as an XSIAM integration, leveraging XSIAM's API and exec
 
 [View XSIAM Integration Documentation →](xsiam/)
 
-## Quick Start
+## Deployment Options
 
-### Standalone Server (Recommended)
+### XSIAM Integration (`xsiam/`)
+Use when you want the MCP to run inside an XSIAM engine.
 
-1. **Clone the repository:**
+Parameters to configure in XSIAM (from `integration.yml` / UI):
+- `xsiam_api_url` (e.g., `https://api-<tenant>.xdr.<region>.paloaltonetworks.com`)
+- `xsiam_standard_key` (Standard API key value)
+- `xsiam_key_id` (Standard API key ID)
+- `mcp_transport` (`streamable-http` recommended; `stdio` optional)
+- `mcp_host` / `mcp_port` / `mcp_path` (default `0.0.0.0` / `9010` / `/api/v1/stream/mcp`)
+- `playground_id` (required for tools that use War Room command execution)
+- `mcp_key` (optional bearer token for MCP auth)
+- `slack_bot_token`, `ssl_pem`, `ssl_key` (optional)
+
+Notes:
+- Deploy to an XSIAM engine.
+- You do not need Docker/Compose here.
+- Make sure your Standard API key has required scopes.
+
+### Standalone Server (`standalone/`)
+Use when you want to run outside XSIAM (local, VM, container, or Compose).
+
+Environment setup (applies to Docker and Compose):
 ```bash
-git clone https://github.com/yourusername/mcpservers.git
-cd mcpservers/standalone
-```
-
-2. **Set up environment variables:**
-```bash
+cd standalone
 cp .env.example .env
-# Edit .env with your XSIAM credentials
+# Fill CORTEX_MCP_PAPI_URL=https://api-<tenant>.xdr.<region>.paloaltonetworks.com
+# Fill CORTEX_MCP_PAPI_AUTH_HEADER and CORTEX_MCP_PAPI_AUTH_ID with your Standard API key/value
 ```
 
-3. **Run with Docker:**
+#### Run with Docker (single container)
 ```bash
 docker build -t cortex-mcp-standalone .
-docker run --env-file .env -i --rm cortex-mcp-standalone
+docker run --env-file .env -p 9020:9020 -i --rm cortex-mcp-standalone
+```
+You can also pass env vars inline for quick tests:
+```bash
+docker run -p 9020:9020 \
+  -e CORTEX_MCP_PAPI_URL=... \
+  -e CORTEX_MCP_PAPI_AUTH_HEADER=... \
+  -e CORTEX_MCP_PAPI_AUTH_ID=... \
+  -e MCP_AUTH_TOKEN=... \
+  -i --rm cortex-mcp-standalone
 ```
 
-4. **Or run locally with Poetry:**
+#### Run with Docker Compose (full stack: MCP + Streamlit agent)
 ```bash
-poetry install
-poetry run python src/main.py
+cd standalone
+cp .env.example .env
+# Fill MCP_* and CORTEX_* for the server; fill GEMINI/GOOGLE_* and MCP_URL/MCP_TOKEN for the agent.
+docker compose up -d
+```
+Services:
+- `mcp-xsiam` on port `9020` (streamable HTTP endpoint)
+- `agent-orion` on port `8501` (Streamlit UI consuming the MCP)
+
+#### Local Python (no containers)
+```bash
+cd standalone
+pip install -r requirements.txt
+python src/main.py
 ```
 
 
@@ -202,46 +248,26 @@ Agent uses:
 3. query_paloalto_firewall_logs - Security events
 ```
 
-## Configuration
+## Environment & Auth
 
-### Required Environment Variables
+Shared required values (both variants):
+- `CORTEX_MCP_PAPI_URL` = `https://api-<tenant>.xdr.<region>.paloaltonetworks.com` (do NOT include `/public_api/v1`; the client appends it)
+- `CORTEX_MCP_PAPI_AUTH_HEADER` = Standard API key value
+- `CORTEX_MCP_PAPI_AUTH_ID` = Standard API key ID
 
-```bash
-# XSIAM API Credentials
-CORTEX_MCP_PAPI_URL=https://api-<tenant>.xdr.us.paloaltonetworks.com
-CORTEX_MCP_PAPI_AUTH_HEADER=<your_standard_api_key>
-CORTEX_MCP_PAPI_AUTH_ID=<your_api_key_id>
-```
+Optional (commonly used):
+- Transport: `MCP_TRANSPORT=streamable-http` or `stdio`; `MCP_HOST`, `MCP_PORT`, `MCP_PATH`
+- MCP auth: `MCP_AUTH_TOKEN` (bearer required by clients)
+- Playground: `PLAYGROUND_ID` (needed for War Room command execution in the integration)
+- TLS: `SSL_CERT_PEM`, `SSL_KEY_PEM` (one-line PEM with `\n`)
+- Slack: `SLACK_BOT_TOKEN`
+- Agent (Compose): `MCP_URL`, `MCP_TOKEN`, `GEMINI_API_KEY`, `GOOGLE_APPLICATION_CREDENTIALS`, `GEMINI_MODEL`, `UI_USER`, `UI_PASSWORD`
 
-### Optional Configuration
+.env usage:
+- **Standalone**: copy `standalone/.env.example` to `.env` and fill the values. Compose and Docker both read this file.
+- **XSIAM integration**: values are entered via the integration parameters in the XSIAM UI (mirrors the variables above).
 
-```bash
-# MCP Transport (stdio or streamable-http)
-MCP_TRANSPORT=stdio
-MCP_HOST=0.0.0.0
-MCP_PORT=8080
-MCP_PATH=/mcp
-
-# Authentication
-MCP_AUTH_TOKEN=<bearer_token_for_clients>
-
-# Playground (for command execution)
-PLAYGROUND_ID=<investigation_id>
-
-# Slack Integration
-SLACK_BOT_TOKEN=<slack_bot_token>
-
-# Google Gemini (for XQL content design)
-GOOGLE_API_KEY=<gemini_api_key>
-GEMINI_MODEL=gemini-1.5-pro
-
-# Logging
-LOG_LEVEL=INFO
-LOG_FORMAT=json
-LOG_FILE_PATH=/app/logs/mcp.json
-```
-
-[View Complete Configuration Guide →](standalone/ENV_VARIABLES.md)
+[See full variable reference →](standalone/ENV_VARIABLES.md)
 
 ## Authentication
 
